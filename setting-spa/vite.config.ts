@@ -4,27 +4,43 @@ import federation from "@originjs/vite-plugin-federation";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
   plugins: [
     react(),
     federation({
-      name: "setting-components",
+      name: "settingspa",
       filename: "remoteEntry.js",
       exposes: {
-        "./List": "./src/components/List.jsx",
-        "./Input": "./src/components/Input.jsx",
+        "./app": "./src/App",
+        './pages': './src/routes/pages',
+        './company': './src/Pages/Company'
       },
-      shared: ["react"],
-    }),
+      shared: ["react", "react-dom"],
+    })
   ],
-  build: {
-    outDir: 'dist',
-    sourcemap: true,
-  },
   server: {
-    open: false, // Abre automáticamente en el navegador
-    proxy: {
-      // Configuración de proxy si es necesario
+    port: 4000,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    cors: false
+    /*cors: {
+      origin: 'http://localhost:5173', // Origen permitido
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization']
+    }*/
+  },
+  build: {
+    modulePreload: false,
+    target: "esnext",
+    minify: false,
+    cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]'
+      }
     }
-  }
+  },
+
 })

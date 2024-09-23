@@ -1,5 +1,6 @@
 import pages from './pages';
 import { Page } from './types/page';
+
 import { Routes, Route } from 'react-router-dom';
 
 export const PagesRouter: React.FC = () => {
