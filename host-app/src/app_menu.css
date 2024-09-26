@@ -1,7 +1,6 @@
 /*
 * THEME APP
 */
-
 /* App.css */
 .app {
     font-family: Arial, sans-serif;
@@ -38,10 +37,21 @@
     color: white;
 }
 
+.dark .switch-2 {
+    background-color: #333;
+}
 
 /*
 * ESTILOS DEL MENU
 */
+
+.option-setting {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(2, 0fr);
+    grid-template-rows: 50px
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -381,6 +391,16 @@ video {
     user-select: none;
     z-index: 9;
     margin-left: 5rem;
+    margin-right: 0.5rem;
+    height: 40px;
+}
+
+.switch-2 {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    z-index: 9;
     margin-right: 0.5rem;
     height: 40px;
 }

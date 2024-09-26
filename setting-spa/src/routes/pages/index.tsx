@@ -1,8 +1,8 @@
 
 import { Page } from '../types/page';
 import App from '../../App';
-import Company from '../../Pages/Company';
-import Department from '../../Pages/Department';
+import Company from '../../pages/company';
+import Department from '../../pages/department';
 
 const pages: { [key: string]: Page } = {
     App: {

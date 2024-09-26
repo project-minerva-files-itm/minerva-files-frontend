@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import CompanySlice from '../reducers/company_slice';
 
 
 export const store = configureStore({
     reducer: {
+        Company: CompanySlice
     },
 });
 

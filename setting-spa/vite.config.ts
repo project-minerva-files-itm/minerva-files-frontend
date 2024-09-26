@@ -12,7 +12,9 @@ export default defineConfig({
       exposes: {
         "./app": "./src/App",
         './pages': './src/routes/pages',
-        './company': './src/Pages/Company'
+        './company': './src/pages/company',
+        './ModalProvider': './src/providers/modal_provider.tsx',
+        './useModal': './src/providers/hooks/modal.ts',
       },
       shared: ["react", "react-dom"],
     })

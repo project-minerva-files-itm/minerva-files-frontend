@@ -1,8 +1,9 @@
+import TableCompanyPage from "./components/table";
+
 type CompanyPageProps = unknown
 
 const CompanyPage: React.FC<CompanyPageProps> = () => {
-
-    return <h1>Company</h1>
+    return <TableCompanyPage></TableCompanyPage>
 }
 
 export default CompanyPage;
