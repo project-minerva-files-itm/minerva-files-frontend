@@ -7,7 +7,7 @@ import { FormCompany } from './types/company_form';
 import { FormProps } from '@apptypes/form_type';
 
 
-const FormCompanyView: React.FC<FormProps<FormCompany>> = ({ title, name, data, handlerSave }) => {
+const FormCompanyView: React.FC<FormProps<FormCompany>> = ({ title, name, data, handlerSave, isDeletable, handlerDelete }) => {
 
     const loader = useLoader();
     const { closeModal } = useModal();
@@ -25,6 +25,11 @@ const FormCompanyView: React.FC<FormProps<FormCompany>> = ({ title, name, data, 
         'numberEmployees'
     ];
 
+    const handleDelete = () => {
+        if (isDeletable && handlerDelete) {
+            handlerDelete(data!);
+        }
+    };
 
     return (
         <>
@@ -64,16 +69,18 @@ const FormCompanyView: React.FC<FormProps<FormCompany>> = ({ title, name, data, 
                                     </AppButton>
                                 </span>
 
-                                <span className="sm:ml-3">
+                                {isDeletable ? <span className="sm:ml-3">
                                     <AppButton
                                         context={loader}
                                         text='Delete'
+                                        onClick={handleDelete}
                                         className={'app-button-base'}
                                         child={
                                             <TrashIcon aria-hidden="true" className="app-icon-base text-red-600" />
                                         }>
                                     </AppButton>
-                                </span>
+                                </span> : null}
+
                             </LayoutHeadModal>
 
                             <div className="space-y-12 ">

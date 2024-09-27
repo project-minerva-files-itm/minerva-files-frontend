@@ -4,7 +4,7 @@ import useCompanyStore from "../../../hooks/store/company_store";
 
 export const useService = () => {
 
-    const { get, save, update } = useApiCompany();
+    const { get, save, update, deleted } = useApiCompany();
     const { setStore } = useCompanyStore();
 
     const getCompany = async (page: number, record: number) => {
@@ -26,6 +26,12 @@ export const useService = () => {
         return response;
     }
 
+    const deleteCompany = async (data: Company) => {
+        const response = await deleted(data.id);
+        console.log(response)
+        return response;
+    }
+
     const onPaginate = async (page: string, record: number) => {
         getCompany(parseInt(page), record)
     }
@@ -40,6 +46,7 @@ export const useService = () => {
         getCompany,
         saveCompany,
         updateCompany,
+        deleteCompany,
         onPaginate,
         onFilter
     };

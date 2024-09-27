@@ -25,7 +25,7 @@ const CreateCompanyPage: React.FC<PageProps> = (props) => {
     /*useEffect(() => {
     });*/
 
-    return <FormCompanyView title={props.title} name={props.name} handlerSave={handlerSave} />;
+    return <FormCompanyView isDeletable={false} title={props.title} name={props.name} handlerSave={handlerSave} />;
 };
 
 export default CreateCompanyPage;

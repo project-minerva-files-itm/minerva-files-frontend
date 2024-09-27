@@ -21,7 +21,12 @@ const useApiCompany = () => {
         return await apiClient.put<ApiResponse<Company>>(`${apiUrl}/Company`, data);
     };
 
-    return { get, save, update };
+    const deleted = async (id: number) => {
+        return await apiClient.delete<ApiResponse<Company>>(`${apiUrl}/Company/${id}`);
+    };
+
+
+    return { get, save, update, deleted };
 };
 
 export default useApiCompany;

@@ -9,7 +9,7 @@ const UpdateCompanyPage: React.FC<PageProps> = (props) => {
     const { closeModal, modalState } = useModal();
     const showToast = useToastNotification();
     const loader = useLoader();
-    const { updateCompany } = useService();
+    const { updateCompany, deleteCompany } = useService();
 
     const handlerSave = async (form: FormCompany) => {
         loader.showLoader();
@@ -21,7 +21,26 @@ const UpdateCompanyPage: React.FC<PageProps> = (props) => {
         }
     }
 
-    return <FormCompanyView data={modalState[props.name].data} title={props.title} name={props.name} handlerSave={handlerSave} />;
+    const handlerDelete = async (form: FormCompany) => {
+        console.log(form)
+        loader.showLoader();
+        const result = await deleteCompany(form);
+        showToast(result)
+        loader.hideLoader();
+        if (result.wasSuccess) {
+            closeModal(props.name);
+        }
+    }
+
+
+    return <FormCompanyView
+        isDeletable={true}
+        data={modalState[props.name].data}
+        title={props.title}
+        name={props.name}
+        handlerSave={handlerSave}
+        handlerDelete={handlerDelete}
+    />;
 };
 
 export default UpdateCompanyPage;
