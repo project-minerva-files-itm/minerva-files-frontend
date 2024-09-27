@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useModal } from "@hooks";
+import { useModal } from "@hooks/index";
 import { TableSelectType } from "bm-react-lib";
 import { Company } from "../../../../models/company";
 import { useService } from "../../hooks/service";
@@ -10,10 +10,10 @@ import TableView from "./view";
 type TableCompanyPageProps = object
 
 const TableCompanyPage: React.FC<TableCompanyPageProps> = () => {
-    console.log("ENTROOOOOO")
+
     const [isFiltering, setFiltering] = useState(false);
     const { openModal } = useModal();
-    const { getCompany } = useService();
+    const { getCompany, onPaginate, onFilter } = useService();
 
     const getId = (result: TableSelectType<Company>) => {
         openModal('update_process', result.data[0]);
@@ -24,11 +24,11 @@ const TableCompanyPage: React.FC<TableCompanyPageProps> = () => {
 
     useEffect(() => {
         if (!isFiltering) {
-            getCompany(0, 10);
+            getCompany(1, 10);
         }
     }, [isFiltering, getCompany]);
 
-    return <TableView columns={columns} />
+    return <TableView columns={columns} onPaginate={onPaginate} onFilter={onFilter} />
 }
 
 export default TableCompanyPage;

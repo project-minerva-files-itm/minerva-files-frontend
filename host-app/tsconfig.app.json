@@ -36,6 +36,9 @@
       "@response/*": [
         "src/services/types/*"
       ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
     }
   },
   "include": [

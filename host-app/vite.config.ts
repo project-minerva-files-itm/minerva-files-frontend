@@ -14,6 +14,7 @@ export default defineConfig({
       '@httpclient': resolve(__dirname, 'src/services/api'),
       '@response': resolve(__dirname, 'src/services/types'),
       '@config': resolve(__dirname, 'src/config'),
+      '@utils': resolve(__dirname, 'src/utils'),
     },
   },
   server: {

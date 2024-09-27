@@ -1,9 +1,9 @@
 export interface Company {
-    Id: number;
-    Name: string;
-    Document: string;
-    Address: string;
-    Phone: string;
-    Email: string;
-    NumberEmployees: string;
+    id: number;
+    name: string;
+    document: string;
+    address: string;
+    phone: string;
+    email: string;
+    numberEmployees: string;
 }

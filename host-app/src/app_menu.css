@@ -50,6 +50,14 @@
     background-color: #333;
 }
 
+.dart .app-pagination-previous,
+.dart .app-pagination-page,
+.dart .app-pagination-next {
+    background-color: #1f2937;
+    color: white;
+}
+
+
 /*
 * ESTILOS DEL MENU
 */

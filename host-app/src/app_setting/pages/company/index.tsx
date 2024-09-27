@@ -6,6 +6,4 @@ const CompanyPage: React.FC<CompanyPageProps> = () => {
     return <TableCompanyPage></TableCompanyPage>
 }
 
-
-
 export default CompanyPage;

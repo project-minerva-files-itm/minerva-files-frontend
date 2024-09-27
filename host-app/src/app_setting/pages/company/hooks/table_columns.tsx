@@ -10,51 +10,51 @@ const useTableColumns = (onIconClick: (data: TableSelectType<Company>) => void) 
             id: 'select',
             cell: ({ row }) => (
                 <input type="radio"
-                    onChange={() => onIconClick({ select: row.getValue('Id'), data: [row.original] })}
-                    value={row.getValue('Id')}
+                    onChange={() => onIconClick({ select: row.getValue('id'), data: [row.original] })}
+                    value={row.getValue('id')}
                     name="table" />
             ),
         },
         {
-            accessorFn: row => row.Id,
-            id: 'Id',
+            accessorFn: row => row.id,
+            id: 'id',
             cell: info => info.getValue(),
             header: () => <span>ID</span>,
             size: 30
         },
         {
-            accessorFn: row => row.Name,
+            accessorFn: row => row.name,
             id: 'Name',
             cell: info => info.getValue(),
             header: () => <span>Name</span>,
         },
         {
-            accessorFn: row => row.Document,
-            id: 'Document',
+            accessorFn: row => row.document,
+            id: 'document',
             cell: info => info.getValue(),
             header: () => <span>Document</span>,
         },
         {
-            accessorFn: row => row.Address,
-            id: 'Address',
+            accessorFn: row => row.address,
+            id: 'address',
             cell: info => info.getValue(),
             header: () => <span>Address</span>,
         },
         {
-            accessorFn: row => row.Phone,
-            id: 'Phone',
+            accessorFn: row => row.phone,
+            id: 'phone',
             cell: info => info.getValue(),
             header: () => <span>Phone</ span >,
         },
         {
-            accessorFn: row => row.Email,
-            id: 'Email',
+            accessorFn: row => row.email,
+            id: 'email',
             cell: info => info.getValue(),
             header: () => <span>Email</span>,
         },
         {
-            accessorFn: row => row.NumberEmployees,
-            id: 'NumberEmployees',
+            accessorFn: row => row.numberEmployees,
+            id: 'numberEmployees',
             cell: info => info.getValue(),
             header: () => <span>NumberEmployees</span>,
         },
