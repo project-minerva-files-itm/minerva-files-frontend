@@ -5,6 +5,7 @@ import { Company } from "../../../../models/company";
 import { useService } from "../../hooks/service";
 import useTableColumns from "../../hooks/table_columns";
 import TableView from "../../components/table";
+import { ModalsEnum } from "../../../../enums/modals_enum";
 
 
 type TableCompanyPageProps = object
@@ -16,8 +17,7 @@ const TableCompanyPage: React.FC<TableCompanyPageProps> = () => {
     const { getCompany, onPaginate, onFilter } = useService();
 
     const getId = (result: TableSelectType<Company>) => {
-        openModal('update_process', result.data[0]);
-
+        openModal(ModalsEnum.UPDATE_COMPANY, result.data[0]);
     }
 
     const columns = useTableColumns(getId);

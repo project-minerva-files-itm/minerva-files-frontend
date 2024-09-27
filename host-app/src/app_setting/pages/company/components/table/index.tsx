@@ -17,6 +17,7 @@ import { calculatePagination } from '@utils/index'
 import { AppModal } from '@components/index'
 import { ModalsEnum } from '../../../../enums/modals_enum'
 import CreateCompanyPage from '../../pages/create'
+import UpdateCompanyPage from '../../pages/update'
 
 
 
@@ -109,6 +110,11 @@ const TableView: React.FC<TableViewProps> = (props) => {
             {modalState[ModalsEnum.CREATE_COMPANY]?.isOpen ?
                 <AppModal name={ModalsEnum.CREATE_COMPANY}>
                     <CreateCompanyPage title={title} name={ModalsEnum.CREATE_COMPANY}></CreateCompanyPage>
+                </AppModal> : null}
+
+            {modalState[ModalsEnum.UPDATE_COMPANY]?.isOpen ?
+                <AppModal name={ModalsEnum.UPDATE_COMPANY}>
+                    <UpdateCompanyPage title={title} name={ModalsEnum.UPDATE_COMPANY}></UpdateCompanyPage>
                 </AppModal> : null}
         </>
     )

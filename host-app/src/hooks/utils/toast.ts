@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 
 const useToastNotification = () => {
     const showToast = useCallback((result: { wasSuccess?: boolean | undefined, message?: string | null }) => {
-        console.log("estadoooo ",result)
         switch (result.wasSuccess) {
             case true:
                 toast.success(result.message);

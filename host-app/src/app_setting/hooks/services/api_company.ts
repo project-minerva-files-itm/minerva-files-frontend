@@ -17,7 +17,11 @@ const useApiCompany = () => {
         return await apiClient.post<ApiResponse<Company>>(`${apiUrl}/Company`, data);
     };
 
-    return { get, save };
+    const update = async (data: Company) => {
+        return await apiClient.put<ApiResponse<Company>>(`${apiUrl}/Company`, data);
+    };
+
+    return { get, save, update };
 };
 
 export default useApiCompany;
