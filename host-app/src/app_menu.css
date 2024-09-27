@@ -41,6 +41,15 @@
     background-color: #333;
 }
 
+.dark .app-head-modal-title {
+    color: white;
+}
+
+.dart button {
+    color: white;
+    background-color: #333;
+}
+
 /*
 * ESTILOS DEL MENU
 */

@@ -4,6 +4,7 @@ import { TableSelectType } from "bm-react-lib";
 import { Company } from "../../../../models/company";
 import { useService } from "../../hooks/service";
 import useTableColumns from "../../hooks/table_columns";
+import TableView from "./view";
 
 
 type TableCompanyPageProps = object
@@ -23,12 +24,11 @@ const TableCompanyPage: React.FC<TableCompanyPageProps> = () => {
 
     useEffect(() => {
         if (!isFiltering) {
-            console.log(columns);
             getCompany(0, 10);
         }
-    }, [isFiltering, getCompany, columns]);
+    }, [isFiltering, getCompany]);
 
-    return <h1>COMPANY</h1>
+    return <TableView columns={columns} />
 }
 
 export default TableCompanyPage;

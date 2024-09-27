@@ -1,5 +1,10 @@
 @import url('./app_menu.css');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -45,7 +50,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  /*background-color: #1a1a1a;*/
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -69,7 +74,147 @@ button:focus-visible {
     color: #747bff;
   }
 
-  button {
+  /*button {
     background-color: #f9f9f9;
-  }
+  }*/
+}
+
+
+/*
+* Layout
+*/
+
+.app-layout {
+  @apply p-2 relative h-screen mt-24;
+}
+
+.app-layout-nomargin {
+  @apply p-2 relative h-screen;
+}
+
+/*
+*Estilos generales
+*/
+.app-border-1 {
+  border-width: 1px;
+}
+
+
+.app-field-ok {
+  @apply block bg-white p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-400 sm:text-sm sm:leading-6;
+}
+
+.app-field-error {
+  @apply block bg-white text-black w-full rounded-md border-2 border-red-500 focus:border-red-700 focus:outline-none p-1.5 rounded;
+}
+
+.app-select-ok {
+  @apply block w-full rounded-md border-0 py-1.5 text-gray-900 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-400 sm:text-sm sm:leading-6;
+}
+
+.app-select-error {
+  @apply block text-black w-full rounded-md app-border-1 border-red-500 focus:border-red-700 focus:outline-none rounded;
+}
+
+.app-label {
+  @apply block text-xs leading-6 text-gray-900;
+}
+
+.app-field {
+  @apply focus:outline-none p-2 block w-full rounded-md py-1.5 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+.app-field-fail {
+  @apply focus:outline-none p-2 block w-full rounded-md py-1.5 ring-1 ring-inset ring-red-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+
+.app-select {
+  @apply focus:outline-none block w-full rounded-md border-0 text-gray-900 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-400 sm:text-sm sm:leading-6;
+}
+
+.app-button-base {
+  @apply inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300;
+}
+
+.app-icon-base {
+  @apply -ml-0.5 mr-1.5 h-5 w-5;
+}
+
+/*
+* Input group
+*/
+.app-field-group {
+  @apply focus:outline-none block w-full rounded-md py-1.5 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+.app-field-group-fail {
+  @apply focus:outline-none block w-full rounded-md py-1.5 ring-1 ring-inset ring-red-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+.app-suffix-group {
+  @apply bg-transparent shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent border-none text-black hover:bg-transparent hover:text-blue-500 focus:outline-none focus:text-blue-500 focus:bg-transparent disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.app-prefix-group {
+  @apply pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3;
+}
+
+.app-panel-group {
+  @apply relative rounded-md shadow-sm;
+}
+
+.app-second-panel-group {
+  @apply absolute inset-y-0 right-0 flex items-center;
+}
+
+/*
+* Head Modal
+*/
+.app-head-modal {
+  @apply lg:flex lg:items-center lg:justify-between mb-10;
+}
+
+.app-head-modal-title {
+  @apply text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight;
+}
+
+.app-head-modal-right {
+  @apply mt-5 flex lg:ml-4 lg:mt-0;
+}
+
+.app-head-modal-panel {
+  @apply min-w-0 flex-1;
+}
+
+/*
+* Pagination
+*/
+
+.app-pagination {
+  @apply mb-10 flex items-center flex flex-wrap md:flex-row justify-between pt-4;
+}
+
+.app-pagination-register {
+  @apply text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto;
+}
+
+.app-pagination-label {
+  @apply ml-2 font-semibold text-gray-900 dark:text-white;
+}
+
+.app-pagination-nav {
+  @apply inline-flex -space-x-px rtl:space-x-reverse text-sm h-8;
+}
+
+.app-pagination-page {
+  @apply flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.app-pagination-previous {
+  @apply cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.app-pagination-next {
+  @apply cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
 }

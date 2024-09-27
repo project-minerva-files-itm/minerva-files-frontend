@@ -26,6 +26,7 @@ interface TableViewProps {
 const TableView: React.FC<TableViewProps> = (props) => {
 
     const loader = useLoader();
+
     const data = useGetCompany().data;
     const columns = props.columns;
     const { openModal } = useModal();
@@ -35,7 +36,6 @@ const TableView: React.FC<TableViewProps> = (props) => {
         console.log(data)
     }
     //props.onProcessFilter(JSON.stringify(data));
-
 
     const onReset = (form: FormApi<unknown>) => {
         // props.onProcessFilter("");
@@ -100,7 +100,6 @@ const TableView: React.FC<TableViewProps> = (props) => {
                     }
                 </Form>
             </div>
-
         </>
     )
 }

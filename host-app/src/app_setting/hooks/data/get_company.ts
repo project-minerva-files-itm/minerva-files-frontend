@@ -1,8 +1,9 @@
-import { useAppSelector } from '../../store/hooks'
+import { useAppSelector } from '../../../hooks/store'
 
 const useGetCompany = () => {
-    console.log("HOLAAAAAA")
+
     const data = useAppSelector(state => state.Company);
+    console.log("XXXX ", data)
     return data;
 };
 
