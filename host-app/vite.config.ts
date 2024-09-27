@@ -15,6 +15,8 @@ export default defineConfig({
       '@response': resolve(__dirname, 'src/services/types'),
       '@config': resolve(__dirname, 'src/config'),
       '@utils': resolve(__dirname, 'src/utils'),
+      '@components': resolve(__dirname, 'src/components'),
+      '@apptypes': resolve(__dirname, 'src/types'),
     },
   },
   server: {

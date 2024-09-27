@@ -1,6 +1,6 @@
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import React from 'react';
-import { useModal } from '../../hooks/utils/modal';
+import { useModal } from '@hooks/index';
 
 
 

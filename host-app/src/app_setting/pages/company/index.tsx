@@ -1,4 +1,4 @@
-import TableCompanyPage from "./components/table";
+import TableCompanyPage from "./pages/select";
 
 type CompanyPageProps = unknown
 

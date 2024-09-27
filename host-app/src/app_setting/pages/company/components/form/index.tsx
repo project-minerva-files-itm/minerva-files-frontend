@@ -1,27 +1,28 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
-import { CompanyForm } from '../types/company_form';
-import { useModal, useValidation, useLoader } from '@hooks';
+import { useModal, useValidation, useLoader } from '@hooks/index';
 import { AppButton, LayoutHeadModal, UILabel } from 'bm-react-lib';
 import { CheckCircleIcon, TrashIcon, XCircleIcon } from '@heroicons/react/16/solid';
+import { FormCompany } from './types/company_form';
+import { FormProps } from '@apptypes/form_type';
 
-interface FormCompanyViewProps {
-    name: string,
-    data?: CompanyForm,
-    handlerSave: (person: CompanyForm) => void
-}
 
-const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSave }) => {
+const FormCompanyView: React.FC<FormProps<FormCompany>> = ({ title, name, data, handlerSave }) => {
 
     const loader = useLoader();
     const { closeModal } = useModal();
 
-    const onSubmit = (person: CompanyForm) =>
+    const onSubmit = (person: FormCompany) =>
         handlerSave(person);
 
-    const { validate } = useValidation<CompanyForm>();
-    const requiredFields: (keyof CompanyForm)[] = [
-        'id',
+    const { validate } = useValidation<FormCompany>();
+    const requiredFields: (keyof FormCompany)[] = [
+        'name',
+        'document',
+        'address',
+        'phone',
+        'email',
+        'numberEmployees'
     ];
 
 
@@ -37,13 +38,13 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                 }) => {
 
                     return (
-                        <form name="frmRegisterProcess" onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}>
 
-                            <LayoutHeadModal title='Empresa'>
+                            <LayoutHeadModal title={title}>
                                 <span className="sm:ml-3">
                                     <AppButton
                                         context={loader}
-                                        text={data ? "Actualizar" : "Crear"}
+                                        text={data ? "Update" : "Create"}
                                         className='app-button-base'
                                         child={
                                             <CheckCircleIcon aria-hidden="true" className="app-icon-base text-green-600" />
@@ -55,7 +56,7 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                     <AppButton
                                         context={loader}
                                         className='app-button-base'
-                                        text='Cancelar'
+                                        text='Cancel'
                                         onClick={() => closeModal(name)}
                                         child={
                                             <XCircleIcon aria-hidden="true" className="app-icon-base text-orange-400" />
@@ -66,7 +67,7 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                 <span className="sm:ml-3">
                                     <AppButton
                                         context={loader}
-                                        text='Eliminar'
+                                        text='Delete'
                                         className={'app-button-base'}
                                         child={
                                             <TrashIcon aria-hidden="true" className="app-icon-base text-red-600" />
@@ -75,13 +76,13 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                 </span>
                             </LayoutHeadModal>
 
-                            <div className="space-y-12 h-100">
+                            <div className="space-y-12 ">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-6">
 
                                         <div className="sm:col-span-2">
-                                            <UILabel htmlFor="Name" text='Name' />
-                                            <Field name='Name'>
+                                            <UILabel htmlFor="name" text='Name' />
+                                            <Field name='name'>
                                                 {({ input, meta }) => (
 
                                                     <input  {...input}
@@ -93,8 +94,8 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <UILabel htmlFor="Document" text='Document' />
-                                            <Field name='Document'>
+                                            <UILabel htmlFor="document" text='Document' />
+                                            <Field name='document'>
                                                 {({ input, meta }) => (
                                                     <input  {...input}
                                                         type="text"
@@ -105,8 +106,8 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <UILabel htmlFor='Address' text='Address' />
-                                            <Field name='Address'>
+                                            <UILabel htmlFor='address' text='Address' />
+                                            <Field name='address'>
                                                 {({ input, meta }) => (
                                                     <input  {...input}
                                                         type="text"
@@ -117,8 +118,8 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <UILabel htmlFor='Phone' text='Phone' />
-                                            <Field name='Phone'>
+                                            <UILabel htmlFor='phone' text='Phone' />
+                                            <Field name='phone'>
                                                 {({ input, meta }) => (
                                                     <input  {...input}
                                                         type="text"
@@ -129,8 +130,8 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <UILabel htmlFor='Email' text='Email' />
-                                            <Field name='Email'>
+                                            <UILabel htmlFor='email' text='Email' />
+                                            <Field name='email'>
                                                 {({ input, meta }) => (
                                                     <input  {...input}
                                                         type='Email'
@@ -141,8 +142,8 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <UILabel htmlFor='NumberEmployees' text='NumberEmployees' />
-                                            <Field name='NumberEmployees'>
+                                            <UILabel htmlFor='numberEmployees' text='NumberEmployees' />
+                                            <Field name='numberEmployees'>
                                                 {({ input, meta }) => (
                                                     <input  {...input}
                                                         type='numeric'
@@ -155,7 +156,6 @@ const FormCompanyView: React.FC<FormCompanyViewProps> = ({ name, data, handlerSa
                                     </div>
                                 </div>
                             </div>
-
                         </form>
                     )
                 }
