@@ -48,3 +48,18 @@ export default tseslint.config({
   },
 })
 ```
+# RUN SERVE
+
+1. npm run dev -- --host
+
+# PUBLICAR STYLE CSS
+
+1. npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
+
+# HABILITAR @apply
+
+1. npm install tailwindcss postcss autoprefixer
+
+# Reinicar
+
+ npm run dev

@@ -1,5 +1,5 @@
+import { Page } from 'bm-react-lib';
 import pages from './pages';
-import { Page } from './types/page';
 
 import { Routes, Route } from 'react-router-dom';
 

@@ -1,7 +1,6 @@
 import React, { useState, ReactNode, useEffect } from 'react';
 import { DarkContext } from '../context/dart_context';
 
-
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     const [isDark, setIsDark] = useState<boolean>(false);
@@ -11,7 +10,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
     useEffect(() => {
         document.body.className = `app ${isDark ? "dark" : "light"}`;
-       // document.getElementById("header")!.className = `app ${isDark ? "dark" : "light"}`;
     }, [isDark]);
 
     return (

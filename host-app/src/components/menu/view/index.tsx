@@ -2,7 +2,7 @@ import { AppBrand, AppNav, AppUl, AppNavLi, AppNavButton } from "bm-react-lib";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { SunIcon, MoonIcon, Cog6ToothIcon } from '@heroicons/react/24/solid'
-import { useTheme } from "../../../hooks/theme";
+import { useTheme } from "../../../hooks/utils/theme";
 
 
 type ButtonProps = unknown
