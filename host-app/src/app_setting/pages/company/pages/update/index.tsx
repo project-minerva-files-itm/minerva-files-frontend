@@ -32,7 +32,6 @@ const UpdateCompanyPage: React.FC<PageProps> = (props) => {
         }
     }
 
-
     return <FormCompanyView
         isDeletable={true}
         data={modalState[props.name].data}
