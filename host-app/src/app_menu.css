@@ -45,18 +45,33 @@
     color: white;
 }
 
-.dart button {
+.dark button {
     color: white;
-    background-color: #333;
+    background-color: #1f2937;
 }
 
-.dart .app-pagination-previous,
-.dart .app-pagination-page,
-.dart .app-pagination-next {
+
+.dark .app-pagination-previous,
+.dark .app-pagination-page,
+.dark .app-pagination-next {
     background-color: #1f2937;
     color: white;
 }
 
+.dark .app-modal,
+.dark .app-thead {
+    background-color: #1f2937;
+}
+
+.dark tbody {
+    background-color: #1f2937;
+}
+
+
+
+.light .app-modal {
+    background-color: white;
+}
 
 /*
 * ESTILOS DEL MENU

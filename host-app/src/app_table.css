@@ -1,0 +1,133 @@
+.table {
+    /*display: table-cell;*/
+    overflow-x: auto;
+    /*width: 100%;*/
+}
+
+.styled-table {
+    border-collapse: collapse;
+    /* margin: 25px 0;*/
+    /*font-size: 0.9em;*/
+    font-size: 0.75rem;
+    /*font-family: sans-serif;*/
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    /*background-color: #fafafa;*/
+    /*color: black;*/
+    opacity: 1;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #b9bbbb;
+}
+
+.styled-table tbody tr:hover {
+    padding: 20px;
+    background-color: #dedada !important;
+    cursor: pointer;
+}
+
+/**/
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1rem;
+    /*color: #fff;*/
+    color: #696969;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 1px;
+    border-image: linear-gradient(to right, #4299e1, #4299e1);
+    border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #4299e1;
+    font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+.footer {
+    text-align: right;
+}
+
+.footer-conten {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    display: flex;
+    flex-direction: row;
+    grid-column-gap: 2rem;
+    column-gap: 2rem;
+    margin: 0 auto;
+}
+
+.button-cursor {
+    cursor: pointer;
+}
+
+
+.td-direction {
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    height: 80px;
+}

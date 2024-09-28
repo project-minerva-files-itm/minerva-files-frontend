@@ -91,8 +91,8 @@ const TableView: React.FC<TableViewProps> = (props) => {
                                 </a>}
                             ></AppPagination>
                             <div className="overflow-x-auto styled-table">
-                                <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
-                                    <thead className='text-xs text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                <table className='app-table'>
+                                    <thead className='app-thead'>
                                         <AppTableHead handleSubmit={handleSubmit} table={table.getHeaderGroups()}>
                                         </AppTableHead>
                                     </thead>
