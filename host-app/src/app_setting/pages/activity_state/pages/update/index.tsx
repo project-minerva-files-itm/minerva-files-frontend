@@ -1,19 +1,19 @@
-import { PageProps } from "@apptypes/page_type"; 
+import { PageProps } from "@apptypes/page_type";
 import FormCompanyView from "../../components/form";
-import { FormCompany } from "../../components/form/types/company_form";
+import { FormActivity } from "../../components/form/types/activity_form";
 import { useLoader, useModal, useToastNotification } from "@hooks/index";
 import { useService } from "../../hooks/service";
 
-const UpdateCompanyPage: React.FC<PageProps> = (props) => {
+const ActivityStatePage: React.FC<PageProps> = (props) => {
 
     const { closeModal, modalState } = useModal();
     const showToast = useToastNotification();
     const loader = useLoader();
-    const { updateCompany, deleteCompany } = useService();
+    const { updateActivityState, deleteActivityState } = useService();
 
-    const handlerSave = async (form: FormCompany) => {
+    const handlerSave = async (form: FormActivity) => {
         loader.showLoader();
-        const result = await updateCompany(form);
+        const result = await updateActivityState(form);
         showToast(result)
         loader.hideLoader();
         if (result.wasSuccess) {
@@ -21,9 +21,9 @@ const UpdateCompanyPage: React.FC<PageProps> = (props) => {
         }
     }
 
-    const handlerDelete = async (form: FormCompany) => {
+    const handlerDelete = async (form: FormActivity) => {
         loader.showLoader();
-        const result = await deleteCompany(form);
+        const result = await deleteActivityState(form);
         showToast(result)
         loader.hideLoader();
         if (result.wasSuccess) {
@@ -41,4 +41,4 @@ const UpdateCompanyPage: React.FC<PageProps> = (props) => {
     />;
 };
 
-export default UpdateCompanyPage;
+export default ActivityStatePage;

@@ -10,9 +10,9 @@ import { AppButton, AppPagination, LayoutHeadModal } from 'bm-react-lib'
 import { Form } from 'react-final-form'
 import { FormApi } from 'final-form'
 import { useTableConfig, useModal, useLoader } from '@hooks/index'
-import useGetCompany from '../../../../hooks/data/get_company'
+import useGetActivityState from '../../../../hooks/data/get_stateactivity'
 import { AppTableBody, AppTableHead } from '../../../../../components/table'
-import { Company } from '../../../../models/company'
+import { ActivityState } from '../../../../models/activitystate'
 import { calculatePagination } from '@utils/index'
 import { AppModal } from '@components/index'
 import { ModalsEnum } from '../../../../enums/modals_enum'
@@ -22,21 +22,23 @@ import UpdateCompanyPage from '../../pages/update'
 
 
 interface TableViewProps {
-    columns: ColumnDef<Company, unknown>[],
+    columns: ColumnDef<ActivityState, unknown>[],
     onPaginate: (url: string, record: number) => void
     onFilter: (url: string) => void
 }
 
 const TableView: React.FC<TableViewProps> = (props) => {
 
-    const title = "Company";
+    const title = "Activities";
     const loader = useLoader();
-    const company = useGetCompany();
-    const data = company.data as Array<Company>;
+    const company = useGetActivityState();
+    const data = company.data as Array<ActivityState>;
     const columns = props.columns;
     const { modalState, openModal } = useModal();
     const table = useTableConfig({ data, columns });
     const pagination = calculatePagination(company.pagination) as Record<string, string>;
+    const keyCreateModal = ModalsEnum.CREATE_ACTIVITY;
+    const keyUpdateModal = ModalsEnum.UPDATE_ACTIVITY;
 
     const onSubmit = (data: unknown) => {
         console.log(data)
@@ -59,7 +61,7 @@ const TableView: React.FC<TableViewProps> = (props) => {
                                 <span className="sm:ml-3">
                                     <AppButton
                                         context={loader}
-                                        onClick={() => { openModal(ModalsEnum.CREATE_COMPANY) }}
+                                        onClick={() => { openModal(keyCreateModal) }}
                                         text='New'
                                         className='app-button-base'
                                         child={
@@ -106,14 +108,14 @@ const TableView: React.FC<TableViewProps> = (props) => {
                 </Form>
             </div>
 
-            {modalState[ModalsEnum.CREATE_COMPANY]?.isOpen ?
-                <AppModal name={ModalsEnum.CREATE_COMPANY}>
-                    <CreateCompanyPage title={title} name={ModalsEnum.CREATE_COMPANY}></CreateCompanyPage>
+            {modalState[keyCreateModal]?.isOpen ?
+                <AppModal name={keyCreateModal}>
+                    <CreateCompanyPage title={title} name={keyCreateModal}></CreateCompanyPage>
                 </AppModal> : null}
 
-            {modalState[ModalsEnum.UPDATE_COMPANY]?.isOpen ?
-                <AppModal name={ModalsEnum.UPDATE_COMPANY}>
-                    <UpdateCompanyPage title={title} name={ModalsEnum.UPDATE_COMPANY}></UpdateCompanyPage>
+            {modalState[keyUpdateModal]?.isOpen ?
+                <AppModal name={keyUpdateModal}>
+                    <UpdateCompanyPage title={title} name={keyUpdateModal}></UpdateCompanyPage>
                 </AppModal> : null}
         </>
     )

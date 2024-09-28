@@ -2,6 +2,7 @@ import { Page } from 'bm-react-lib';
 import App from '../../App';
 import Company from '../pages/company';
 import Department from '../pages/department';
+import ActivityStatePage from '../pages/activity_state';
 
 const pages: { [key: string]: Page } = {
     App: {
@@ -18,6 +19,11 @@ const pages: { [key: string]: Page } = {
         name: 'Department',
         path: '/department',
         element: <Department />,
+    },
+    Activities: {
+        name: 'ActivityStatePage',
+        path: '/activities',
+        element: <ActivityStatePage />,
     },
 };
 
