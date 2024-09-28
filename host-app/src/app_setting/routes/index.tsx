@@ -3,6 +3,7 @@ import App from '../../App';
 import Company from '../pages/company';
 import Department from '../pages/department';
 import ActivityStatePage from '../pages/activity_state';
+import RequestTypePage from '../pages/request_type'; 
 
 const pages: { [key: string]: Page } = {
     App: {
@@ -24,6 +25,11 @@ const pages: { [key: string]: Page } = {
         name: 'ActivityStatePage',
         path: '/activities',
         element: <ActivityStatePage />,
+    },
+    RequestType: {
+        name: 'RequestTypePage',
+        path: '/requestType',
+        element: <RequestTypePage />,
     },
 };
 
