@@ -17,7 +17,7 @@ const Menu: React.FC<ButtonProps> = () => {
             <AppUl>
                 <AppNavLi label="settings">
                     <a onClick={() => history('/company')} className="a">Company</a>
-                    <a onClick={() => history('/terceros')} className="a">Terceros</a>
+                    <a onClick={() => history('/activities')} className="a">Activity</a>
                     <a onClick={() => history('/setting')} className="a">Settings</a>
                 </AppNavLi>
                 <li className="a option-setting">

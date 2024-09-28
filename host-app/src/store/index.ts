@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { CompanySlice } from '../app_setting/reducers'
+import { CompanySlice, ActivityState } from '../app_setting/reducers'
 
 const rootReducer = combineReducers({
     Company: CompanySlice,
+    ActivityState: ActivityState
 });
 
 export const store = configureStore({
