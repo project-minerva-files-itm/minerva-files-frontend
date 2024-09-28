@@ -1,9 +1,9 @@
 @import url('./app_menu.css');
+@import url('./app_table.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -203,7 +203,7 @@ button:focus-visible {
 }
 
 .app-pagination-label {
-  @apply ml-2 font-semibold text-gray-900 dark:text-white;
+  @apply ml-2 font-semibold dark:text-white;
 }
 
 .app-pagination-nav {
@@ -224,4 +224,12 @@ button:focus-visible {
 
 .app-spinner {
   @apply inline w-4 h-4 me-3 text-white animate-spin
+}
+
+.app-table {
+  @apply w-full text-sm text-left rtl:text-right
+}
+
+.app-thead {
+  @apply text-xs dark:text-white
 }

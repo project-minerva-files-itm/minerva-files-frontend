@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 export default {
+  darkMode: ['selector', '[data-mode="dark"]'],
   content: [
     // Tus rutas de archivos
     './src/**/*.html',
