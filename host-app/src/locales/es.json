@@ -7,5 +7,10 @@
   "of": "de",
   "page": "Página",
   "company": "Compañia",
-  "description": "Este es un ejemplo multilingüe"
+  "name": "Nombre",
+  "document": "Documento",
+  "address": "Dirección",
+  "phone": "Teléfono",
+  "email": "Correo Electrónico",
+  "numberEmployees": "Número de Empleados"
 }

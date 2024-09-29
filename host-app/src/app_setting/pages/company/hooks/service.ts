@@ -4,7 +4,7 @@ import useCompanyStore from "../../../hooks/store/company_store";
 
 export const useService = () => {
 
-    const { get, save, update, deleted } = useApiCompany();
+    const { get, save, update, deleted, filtering } = useApiCompany();
     const { setStore } = useCompanyStore();
 
     const getCompany = async (page: number, record: number) => {
@@ -37,9 +37,10 @@ export const useService = () => {
     }
 
     const onFilter = async (filter: string) => {
-        console.log(filter)
-        //const processes = await getProcessFilterApi(filter);
-        //setProcessStore(processes.data);
+        const response = await filtering(1, 1000, filter);
+        if (response) {
+            setStore(response);
+        }
     }
 
     return {

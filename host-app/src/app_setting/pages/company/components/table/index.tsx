@@ -39,10 +39,7 @@ const TableView: React.FC<TableViewProps> = (props) => {
     const table = useTableConfig({ data, columns });
     const pagination = calculatePagination(company.pagination) as Record<string, string>;
 
-    const onSubmit = (data: unknown) => {
-        console.log(data)
-    }
-
+    const onSubmit = (data: unknown) => props.onFilter(JSON.stringify(data));
 
     const onReset = (form: FormApi<unknown>) => {
         form.reset();

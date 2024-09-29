@@ -7,5 +7,10 @@
     "of": "of",
     "page": "Page",
     "company": "Company",
-    "description": "This is a multi-language example"
+    "name": "Name",
+    "document": "Document",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "numberEmployees": "numberEmployees"
 }
