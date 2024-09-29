@@ -11,23 +11,26 @@ import { PagesRouter } from './routes'
 import Menu from './components/menu'
 import { LoaderProvider } from './providers/loader_provider'
 import { ToastContainer } from 'react-toastify'
-
+import './i18n';
+import { LanguageProvider } from './providers/language_provider'
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Provider store={store}  >
-      <ModalProvider>
-        <LoaderProvider>
-          <ThemeProvider>
-            <BrowserRouter basename='/'>
-              <Menu />
-              <PagesRouter />
-            </BrowserRouter>
-          </ThemeProvider>
-        </LoaderProvider>
-      </ModalProvider>
-      <ToastContainer />
-    </Provider>
+    <LanguageProvider>
+      <Provider store={store}  >
+        <ModalProvider>
+          <LoaderProvider>
+            <ThemeProvider>
+              <BrowserRouter basename='/'>
+                <Menu />
+                <PagesRouter />
+              </BrowserRouter>
+            </ThemeProvider>
+          </LoaderProvider>
+        </ModalProvider>
+        <ToastContainer />
+      </Provider>
+    </LanguageProvider>
   </StrictMode>
 )
