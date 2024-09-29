@@ -43,6 +43,7 @@ const TableView: React.FC<TableViewProps> = (props) => {
 
     const onReset = (form: FormApi<unknown>) => {
         form.reset();
+        props.onFilter("");
     }
 
     return (
