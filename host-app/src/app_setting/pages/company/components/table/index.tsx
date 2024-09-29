@@ -18,6 +18,7 @@ import { AppModal } from '@components/index'
 import { ModalsEnum } from '../../../../enums/modals_enum'
 import CreateCompanyPage from '../../pages/create'
 import UpdateCompanyPage from '../../pages/update'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -28,8 +29,8 @@ interface TableViewProps {
 }
 
 const TableView: React.FC<TableViewProps> = (props) => {
-
-    const title = "Company";
+    const { t } = useTranslation();
+    const title = t("company");
     const loader = useLoader();
     const company = useGetCompany();
     const data = company.data as Array<Company>;
@@ -60,7 +61,7 @@ const TableView: React.FC<TableViewProps> = (props) => {
                                     <AppButton
                                         context={loader}
                                         onClick={() => { openModal(ModalsEnum.CREATE_COMPANY) }}
-                                        text='New'
+                                        text={t('new')}
                                         className='app-button-base'
                                         child={
                                             <PlusIcon aria-hidden="true" className="app-icon-base text-green-600" />
@@ -69,7 +70,7 @@ const TableView: React.FC<TableViewProps> = (props) => {
                                     <AppButton
                                         onClick={() => onReset(form)}
                                         context={loader}
-                                        text='Update'
+                                        text={t('refresh')}
                                         className='app-button-base'
                                         child={
                                             <ArrowPathIcon aria-hidden="true" className="app-icon-base text-blue-600" />
@@ -78,16 +79,19 @@ const TableView: React.FC<TableViewProps> = (props) => {
                                 </span>
                             </LayoutHeadModal>
                             <AppPagination
+                                labelOf={t('of')}
+                                labelTotal={t('records')}
+                                labelPage={t('page')}
                                 from={pagination.pFrom}
                                 to={pagination.pTo}
                                 total={pagination.pTotal}
                                 currentPage={pagination.pCurrentPage}
                                 lastPage={pagination.pLastPage}
                                 childPrevious={<a onClick={() => props.onPaginate(pagination.pBackPage, 10)} className="app-pagination-previous">
-                                    Previous
+                                    {t('previous')}
                                 </a>}
                                 childNext={<a onClick={() => props.onPaginate(pagination.pNextPage, 10)} className="app-pagination-next">
-                                    Next
+                                    {t('next')}
                                 </a>}
                             ></AppPagination>
                             <div className="overflow-x-auto styled-table">
