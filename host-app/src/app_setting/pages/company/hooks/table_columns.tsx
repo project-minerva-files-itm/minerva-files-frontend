@@ -2,9 +2,11 @@ import React from 'react';
 import { Company } from '../../../models/company';
 import { ColumnDef } from '@tanstack/react-table';
 import { TableSelectType } from 'bm-react-lib';
+import { useTranslation } from 'react-i18next';
 
 
 const useTableColumns = (onIconClick: (data: TableSelectType<Company>) => void) => {
+    const { t } = useTranslation();
     return React.useMemo<ColumnDef<Company, unknown>[]>(() => [
         {
             id: 'select',
@@ -24,42 +26,42 @@ const useTableColumns = (onIconClick: (data: TableSelectType<Company>) => void) 
         },
         {
             accessorFn: row => row.name,
-            id: 'Name',
+            id: 'name',
             cell: info => info.getValue(),
-            header: () => <span>Name</span>,
+            header: () => <span>{t('name')}</span>,
         },
         {
             accessorFn: row => row.document,
             id: 'document',
             cell: info => info.getValue(),
-            header: () => <span>Document</span>,
+            header: () => <span>{t('document')}</span>,
         },
         {
             accessorFn: row => row.address,
             id: 'address',
             cell: info => info.getValue(),
-            header: () => <span>Address</span>,
+            header: () => <span>{t('address')}</span>,
         },
         {
             accessorFn: row => row.phone,
             id: 'phone',
             cell: info => info.getValue(),
-            header: () => <span>Phone</ span >,
+            header: () => <span>{t('phone')}</ span >,
         },
         {
             accessorFn: row => row.email,
             id: 'email',
             cell: info => info.getValue(),
-            header: () => <span>Email</span>,
+            header: () => <span>{t('email')}</span>,
         },
         {
             accessorFn: row => row.numberEmployees,
             id: 'numberEmployees',
             cell: info => info.getValue(),
-            header: () => <span>NumberEmployees</span>,
+            header: () => <span>{t('numberEmployees')}</span>,
         },
 
-    ], [onIconClick]);
+    ], [t, onIconClick]);
 };
 
 export default useTableColumns;

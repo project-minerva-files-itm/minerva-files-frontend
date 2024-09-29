@@ -25,8 +25,12 @@ const useApiCompany = () => {
         return await apiClient.delete<ApiResponse<Company>>(`${apiUrl}/Company/${id}`);
     };
 
+    const filtering = async (page: number, record: number, filter: string) => {
+        const query = `paginated?Page=${page}&RecordsNumber=${record}&Filter=${filter}`;
+        return await apiClient.get<ApiResponse<Company>>(`${apiUrl}/Company/${query}`);
+    };
 
-    return { get, save, update, deleted };
+    return { get, save, update, deleted, filtering };
 };
 
 export default useApiCompany;
