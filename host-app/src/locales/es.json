@@ -13,6 +13,9 @@
   "phone": "Teléfono",
   "email": "Correo Electrónico",
   "numberEmployees": "Número de Empleados",
+  "activities": "Actividades",
+  "typeRequests": "Tipo de solicitudes",
+  "settings": "Configuraciones",
   "activity_state": "Estado de actividad",
   "description": "Descripción",
   "type": "Tipo de solicitud"

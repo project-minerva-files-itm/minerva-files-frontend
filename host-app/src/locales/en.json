@@ -13,6 +13,9 @@
     "phone": "Phone",
     "email": "Email",
     "numberEmployees": "numberEmployees",
+    "activities": "Activities",
+    "typeRequests": "Type of requests",
+    "settings": "Settings",
     "activity_state": "Activity State",
     "description": "Description",
     "type": "Request type"

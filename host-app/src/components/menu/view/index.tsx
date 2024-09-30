@@ -3,23 +3,24 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { SunIcon, MoonIcon, Cog6ToothIcon } from '@heroicons/react/24/solid'
 import { useTheme } from "../../../hooks/utils/theme";
+import { useTranslation } from "react-i18next";
 
 
 type ButtonProps = unknown
 
 const Menu: React.FC<ButtonProps> = () => {
 
+    const { t } = useTranslation();
     const history = useNavigate();
     const theme = useTheme();
 
     return (
         <AppNav brand={<AppBrand label="Minerva" />}>
             <AppUl>
-                <AppNavLi label="settings">
-                    <a onClick={() => history('/company')} className="a">Company</a>
-                    <a onClick={() => history('/activities')} className="a">Activity</a>
-                    <a onClick={() => history('/requestType')} className="a">Request Type</a>
-                    <a onClick={() => history('/setting')} className="a">Settings</a>
+                <AppNavLi label={t('settings')}>
+                    <a onClick={() => history('/company')} className="a">{t('company')}</a>
+                    <a onClick={() => history('/activities')} className="a">{t('activities')}</a>
+                    <a onClick={() => history('/requestType')} className="a">{t('typeRequests')}</a>
                 </AppNavLi>
                 <li className="a option-setting">
                     <AppNavButton className="switch-2">
