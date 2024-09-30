@@ -12,5 +12,8 @@
   "address": "Dirección",
   "phone": "Teléfono",
   "email": "Correo Electrónico",
-  "numberEmployees": "Número de Empleados"
+  "numberEmployees": "Número de Empleados",
+  "activities": "Actividades",
+  "typeRequests": "Tipo de solicitudes",
+  "settings": "Configuraciones"
 }

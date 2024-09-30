@@ -12,5 +12,8 @@
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
-    "numberEmployees": "numberEmployees"
+    "numberEmployees": "numberEmployees",
+    "activities": "Activities",
+    "typeRequests": "Type of requests",
+    "settings": "Settings"
 }
