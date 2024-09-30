@@ -4,7 +4,7 @@ import useActivitySateStore from "../../../hooks/store/activitystate_store";
 
 export const useService = () => {
 
-    const { get, save, update, deleted } = useApiActivitySatate();
+    const { get, save, update, deleted, filtering } = useApiActivitySatate();
     const { setStore } = useActivitySateStore();
 
     const getActivityState = async (page: number, record: number) => {
@@ -37,9 +37,10 @@ export const useService = () => {
     }
 
     const onFilter = async (filter: string) => {
-        console.log(filter)
-        //const processes = await getProcessFilterApi(filter);
-        //setProcessStore(processes.data);
+        const response = await filtering(1, 1000, filter);
+        if (response) {
+            setStore(response);
+        }
     }
 
     return {
