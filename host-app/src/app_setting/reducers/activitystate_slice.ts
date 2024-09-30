@@ -11,7 +11,7 @@ const initialState: ApiResponse<ActivityState> = {
 }
 
 
-export const CompanySlice = createSlice({
+export const activitySlice = createSlice({
     name: 'ActivityState',
     initialState: initialState,
     reducers: {
@@ -24,6 +24,6 @@ export const CompanySlice = createSlice({
     },
 });
 
-export const { fetchSuccess } = CompanySlice.actions;
+export const { fetchSuccess } = activitySlice.actions;
 
-export default CompanySlice.reducer;
+export default activitySlice.reducer;
