@@ -17,7 +17,7 @@ const TableActivityStatePage: React.FC<TableActivityStatePageProps> = () => {
     const { getActivityState, onPaginate, onFilter } = useService();
 
     const getId = (result: TableSelectType<ActivityState>) => {
-        openModal(ModalsEnum.UPDATE_COMPANY, result.data[0]);
+        openModal(ModalsEnum.UPDATE_ACTIVITY, result.data[0]);
     }
 
     const columns = useTableColumns(getId);

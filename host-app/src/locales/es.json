@@ -15,5 +15,8 @@
   "numberEmployees": "Número de Empleados",
   "activities": "Actividades",
   "typeRequests": "Tipo de solicitudes",
-  "settings": "Configuraciones"
+  "settings": "Configuraciones",
+  "activity_state": "Estado de actividad",
+  "description": "Descripción",
+  "type": "Tipo de solicitud"
 }
