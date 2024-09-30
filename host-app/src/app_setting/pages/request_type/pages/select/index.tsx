@@ -17,7 +17,7 @@ const TableRequestTypePage: React.FC<TableRequestTypePageProps> = () => {
     const { getRequestType, onPaginate, onFilter } = useService();
 
     const getId = (result: TableSelectType<RequestType>) => {
-        openModal(ModalsEnum.UPDATE_COMPANY, result.data[0]);
+        openModal(ModalsEnum.UPDATE_TYPE, result.data[0]);
     }
 
     const columns = useTableColumns(getId);

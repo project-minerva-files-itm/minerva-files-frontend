@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { CompanySlice, ActivityState, RequestType } from '../app_setting/reducers'
+import { CompanySlice, activitySlice, TypeSlice } from '../app_setting/reducers'
 
 const rootReducer = combineReducers({
     Company: CompanySlice,
-    ActivityState: ActivityState,
-    RequestType: RequestType,
+    ActivityState: activitySlice,
+    RequestType: TypeSlice,
 });
 
 export const store = configureStore({

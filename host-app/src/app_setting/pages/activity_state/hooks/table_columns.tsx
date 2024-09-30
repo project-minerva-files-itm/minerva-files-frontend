@@ -2,9 +2,11 @@ import React from 'react';
 import { ActivityState } from '../../../models/activitystate';
 import { ColumnDef } from '@tanstack/react-table';
 import { TableSelectType } from 'bm-react-lib';
+import { useTranslation } from 'react-i18next';
 
 
 const useTableColumns = (onIconClick: (data: TableSelectType<ActivityState>) => void) => {
+    const { t } = useTranslation();
     return React.useMemo<ColumnDef<ActivityState, unknown>[]>(() => [
         {
             id: 'select',
@@ -26,16 +28,16 @@ const useTableColumns = (onIconClick: (data: TableSelectType<ActivityState>) => 
             accessorFn: row => row.name,
             id: 'Name',
             cell: info => info.getValue(),
-            header: () => <span>Name</span>,
+            header: () => <span>{t('name')}</span>,
         },
         {
             accessorFn: row => row.description,
             id: 'description',
             cell: info => info.getValue(),
-            header: () => <span>Description</span>,
+            header: () => <span>{t('description')}</span>,
         },
 
-    ], [onIconClick]);
+    ], [t, onIconClick]);
 };
 
 export default useTableColumns;

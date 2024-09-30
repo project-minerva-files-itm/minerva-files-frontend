@@ -26,8 +26,13 @@ const useApiActivitySatate = () => {
         return await apiClient.delete<ApiResponse<ActivityState>>(`${apiUrl}/${endpoint}/${id}`);
     };
 
+    const filtering = async (page: number, record: number, filter: string) => {
+        const query = `paginated?Page=${page}&RecordsNumber=${record}&Filter=${filter}`;
+        return await apiClient.get<ApiResponse<ActivityState>>(`${apiUrl}/${endpoint}/${query}`);
+    };
 
-    return { get, save, update, deleted };
+
+    return { get, save, update, deleted, filtering };
 };
 
 export default useApiActivitySatate;
