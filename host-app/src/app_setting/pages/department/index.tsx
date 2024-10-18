@@ -1,8 +1,10 @@
+import TableDepartmentPage from "./pages/select";
+
 type DepartmentPageProps = unknown
 
 const DepartmentPage: React.FC<DepartmentPageProps> = () => {
 
-    return <h1>Department</h1>
+    return <TableDepartmentPage></TableDepartmentPage>
 }
 
 export default DepartmentPage;
