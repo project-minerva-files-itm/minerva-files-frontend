@@ -5,6 +5,7 @@ import {
   TypeSlice,
   DepartmentSlice,
   DocumentTypeSlice,
+  ActivityTypeSlice,
 } from "../app_setting/reducers";
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   ActivityState: activitySlice,
   RequestType: TypeSlice,
   DocumentType: DocumentTypeSlice,
+  ActivityType: ActivityTypeSlice,
 });
 
 export const store = configureStore({

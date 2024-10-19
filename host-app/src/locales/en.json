@@ -21,5 +21,6 @@
     "type": "Request type",
     "department": "Departments",
     "location": "Location",
-    "typeDocuments": "Type of documents"
+    "typeDocuments": "Type of documents",
+    "typeActivities": "Type of activities"
 }

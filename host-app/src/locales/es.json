@@ -21,5 +21,6 @@
   "type": "Tipo de solicitud",
   "department": "Departamentos",
   "location": "ubicación",
-  "typeDocuments": "Tipo de documentos"
+  "typeDocuments": "Tipo de documentos",
+  "typeActivities": "Tipo de actividades"
 }
