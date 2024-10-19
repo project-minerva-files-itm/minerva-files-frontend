@@ -10,7 +10,7 @@ import {
 import { FormType } from "./types/type_form";
 import { FormProps } from "@apptypes/form_type";
 
-const FormRequestTypeView: React.FC<FormProps<FormType>> = ({
+const FormDocumentTypeView: React.FC<FormProps<FormType>> = ({
   title,
   name,
   data,
@@ -137,4 +137,4 @@ const FormRequestTypeView: React.FC<FormProps<FormType>> = ({
   );
 };
 
-export default FormRequestTypeView;
+export default FormDocumentTypeView;

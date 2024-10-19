@@ -1,5 +1,5 @@
 import { PageProps } from "@apptypes/page_type";
-import FormRequestTypeView from "../../components/form";
+import FormDocumentTypeView from "../../components/form";
 import { FormType } from "../../components/form/types/type_form";
 import { useLoader, useModal, useToastNotification } from "@hooks/index";
 import { useService } from "../../hooks/service";
@@ -21,7 +21,7 @@ const CreateDocumentTypePage: React.FC<PageProps> = (props) => {
   };
 
   return (
-    <FormRequestTypeView
+    <FormDocumentTypeView
       isDeletable={false}
       title={props.title}
       name={props.name}
