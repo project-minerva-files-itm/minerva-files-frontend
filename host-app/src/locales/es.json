@@ -18,5 +18,7 @@
   "settings": "Configuraciones",
   "activity_state": "Estado de actividad",
   "description": "Descripción",
-  "type": "Tipo de solicitud"
+  "type": "Tipo de solicitud",
+  "department": "Departamentos",
+  "location": "ubicación"
 }

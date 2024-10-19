@@ -36,6 +36,13 @@ const useTableColumns = (onIconClick: (data: TableSelectType<Department>) => voi
             cell: info => info.getValue(),
             header: () => <span>{t('description')}</span>,
         },
+        {
+            accessorFn: row => row.location,
+            id: 'location',
+            cell: info => info.getValue(),
+            header: () => <span>{t('location')}</span>,
+        },
+        
 
     ], [t, onIconClick]);
 };

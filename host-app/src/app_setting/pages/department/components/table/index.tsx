@@ -53,7 +53,7 @@ const TableView: React.FC<TableViewProps> = (props) => {
                                 <span className="sm:ml-3">
                                     <AppButton
                                         context={loader}
-                                        onClick={() => { openModal(ModalsEnum.CREATE_ACTIVITY) }}
+                                        onClick={() => { openModal(ModalsEnum.CREATE_DEPARTMENT) }}
                                         text={t('new')}
                                         className='app-button-base'
                                         child={
@@ -103,14 +103,14 @@ const TableView: React.FC<TableViewProps> = (props) => {
                 </Form>
             </div>
 
-            {modalState[ModalsEnum.CREATE_ACTIVITY]?.isOpen ?
-                <AppModal name={ModalsEnum.CREATE_ACTIVITY}>
-                    <CreateDepartmentPage title={title} name={ModalsEnum.CREATE_ACTIVITY}></CreateDepartmentPage>
+            {modalState[ModalsEnum.CREATE_DEPARTMENT]?.isOpen ?
+                <AppModal name={ModalsEnum.CREATE_DEPARTMENT}>
+                    <CreateDepartmentPage title={title} name={ModalsEnum.CREATE_DEPARTMENT}></CreateDepartmentPage>
                 </AppModal> : null}
 
-            {modalState[ModalsEnum.UPDATE_ACTIVITY]?.isOpen ?
-                <AppModal name={ModalsEnum.UPDATE_ACTIVITY}>
-                    <DepartmentPage title={title} name={ModalsEnum.UPDATE_ACTIVITY}></DepartmentPage>
+            {modalState[ModalsEnum.UPDATE_DEPARTMENT]?.isOpen ?
+                <AppModal name={ModalsEnum.UPDATE_DEPARTMENT}>
+                    <DepartmentPage title={title} name={ModalsEnum.UPDATE_DEPARTMENT}></DepartmentPage>
                 </AppModal> : null}
         </>
     )
