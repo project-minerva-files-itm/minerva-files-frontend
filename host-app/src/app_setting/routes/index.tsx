@@ -4,6 +4,7 @@ import Company from "../pages/company";
 import Department from "../pages/department";
 import ActivityStatePage from "../pages/activity_state";
 import RequestTypePage from "../pages/request_type";
+import DocumentTypePage from "../pages/document_type";
 
 const pages: { [key: string]: Page } = {
   App: {
@@ -34,7 +35,7 @@ const pages: { [key: string]: Page } = {
   DocumentType: {
     name: "DocumentTypePage",
     path: "/documentType",
-    element: <RequestTypePage />,
+    element: <DocumentTypePage />,
   },
 };
 

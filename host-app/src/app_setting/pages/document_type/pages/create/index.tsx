@@ -1,18 +1,18 @@
 import { PageProps } from "@apptypes/page_type";
-import FormCompanyView from "../../components/form";
+import FormDocumentTypeView from "../../components/form";
 import { FormType } from "../../components/form/types/type_form";
 import { useLoader, useModal, useToastNotification } from "@hooks/index";
 import { useService } from "../../hooks/service";
 
-const CreateRequestTypePage: React.FC<PageProps> = (props) => {
+const CreateDocumentTypePage: React.FC<PageProps> = (props) => {
   const showToast = useToastNotification();
   const loader = useLoader();
-  const { saveRequestType } = useService();
+  const { saveDocumentType } = useService();
   const { closeModal } = useModal();
 
   const handlerSave = async (form: FormType) => {
     loader.showLoader();
-    const result = await saveRequestType(form);
+    const result = await saveDocumentType(form);
     showToast(result);
     loader.hideLoader();
     if (result.wasSuccess) {
@@ -21,7 +21,7 @@ const CreateRequestTypePage: React.FC<PageProps> = (props) => {
   };
 
   return (
-    <FormCompanyView
+    <FormDocumentTypeView
       isDeletable={false}
       title={props.title}
       name={props.name}
@@ -30,4 +30,4 @@ const CreateRequestTypePage: React.FC<PageProps> = (props) => {
   );
 };
 
-export default CreateRequestTypePage;
+export default CreateDocumentTypePage;
