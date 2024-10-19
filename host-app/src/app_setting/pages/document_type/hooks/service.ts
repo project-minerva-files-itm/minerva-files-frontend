@@ -1,4 +1,4 @@
-import { DocumentType } from "src/app_setting/models/requestype";
+import { DocumentType } from "src/app_setting/models/documentype";
 import useApiDocumentType from "../../../hooks/services/api_typerequest";
 import useDocumentTypeStore from "../../../hooks/store/typerequest_store";
 
