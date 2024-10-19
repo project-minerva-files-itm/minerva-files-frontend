@@ -32,7 +32,7 @@ const useTableColumns = (
       },
       {
         accessorFn: (row) => row.name,
-        id: "Name",
+        id: "name",
         cell: (info) => info.getValue(),
         header: () => <span>{t("name")}</span>,
       },

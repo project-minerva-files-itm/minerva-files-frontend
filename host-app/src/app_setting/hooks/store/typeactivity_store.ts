@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { fetchSuccess } from "../../reducers/typerequest_slice";
+import { fetchSuccess } from "../../reducers/typeactivity_slice";
 import { ActivityType } from "../../models/activitytype";
 import { ApiResponse } from "@response/index";
 
