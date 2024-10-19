@@ -22,6 +22,7 @@ const Menu: React.FC<ButtonProps> = () => {
                     <a onClick={() => history('/company')} className="a">{t('company')}</a>
                     <a onClick={() => history('/department')} className="a">{t('department')}</a>
                     <a onClick={() => history('/requestType')} className="a">{t('typeRequests')}</a>
+                    <a onClick={() => history('/documentType')} className="a">{t('typeDocuments')}</a>
                 </AppNavLi>
                 <li className="a option-setting">
                     <AppNavButton className="switch-2">
