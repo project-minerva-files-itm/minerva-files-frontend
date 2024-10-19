@@ -11,12 +11,13 @@ import { ModalsEnum } from "../../../../enums/modals_enum";
 type TableDepartmentPageProps = object
 
 const TableDepartmentPage: React.FC<TableDepartmentPageProps> = () => {
+    
     const [isFiltering, setFiltering] = useState(false);
     const { openModal } = useModal();
     const { getDepartment, onPaginate, onFilter } = useService();
 
     const getId = (result: TableSelectType<Department>) => {
-        openModal(ModalsEnum.UPDATE_COMPANY, result.data[0]);
+        openModal(ModalsEnum.UPDATE_DEPARTMENT, result.data[0]);
     }
 
     const columns = useTableColumns(getId);

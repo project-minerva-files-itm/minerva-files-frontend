@@ -18,5 +18,7 @@
     "settings": "Settings",
     "activity_state": "Activity State",
     "description": "Description",
-    "type": "Request type"
+    "type": "Request type",
+    "department": "Departments",
+    "location": "Location"
 }

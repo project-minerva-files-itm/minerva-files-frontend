@@ -18,7 +18,8 @@ const FormDepartmentView: React.FC<FormProps<FormDepartment>> = ({ title, name, 
     const { validate } = useValidation<FormDepartment>();
     const requiredFields: (keyof FormDepartment)[] = [
       'name',
-      'description'
+      'description',
+      'location',
     ];
 
     const handleDelete = () => {
@@ -100,6 +101,19 @@ const FormDepartmentView: React.FC<FormProps<FormDepartment>> = ({ title, name, 
                                             <UILabel htmlFor="description" text='Description' />
                                             <Field name='description'>
                                                 {({ input, meta }) => (
+                                                    <input  {...input}
+                                                        type="text"
+                                                        className={meta.error && meta.touched ? "app-field-fail" : "app-field"}
+                                                    />
+                                                )}
+                                            </Field>
+                                        </div>
+
+                                        <div className="sm:col-span-2">
+                                            <UILabel htmlFor="location" text='Location' />
+                                            <Field name='location'>
+                                                {({ input, meta }) => (
+
                                                     <input  {...input}
                                                         type="text"
                                                         className={meta.error && meta.touched ? "app-field-fail" : "app-field"}
