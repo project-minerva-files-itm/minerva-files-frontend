@@ -1,6 +1,6 @@
 import { DocumentType } from "src/app_setting/models/documentype";
-import useApiDocumentType from "../../../hooks/services/api_typerequest";
-import useDocumentTypeStore from "../../../hooks/store/typerequest_store";
+import useApiDocumentType from "../../../hooks/services/api_typedocument";
+import useDocumentTypeStore from "../../../hooks/store/typedocument_store";
 
 export const useService = () => {
   const { get, save, update, deleted, filtering } = useApiDocumentType();
