@@ -7,14 +7,14 @@ import useTableColumns from "../../hooks/table_columns";
 import TableView from "../../components/table";
 import { ModalsEnum } from "../../../../enums/modals_enum";
 
-type TableRequestTypePageProps = object;
+type TableDocumentTypePageProps = object;
 
-const TableDocumentTypePage: React.FC<TableRequestTypePageProps> = () => {
+const TableDocumentTypePage: React.FC<TableDocumentTypePageProps> = () => {
   const [isFiltering, setFiltering] = useState(false);
   const { openModal } = useModal();
-  const { getRequestType, onPaginate, onFilter } = useService();
+  const { getDocumentType, onPaginate, onFilter } = useService();
 
-  const getId = (result: TableSelectType<RequestType>) => {
+  const getId = (result: TableSelectType<DocumentType>) => {
     openModal(ModalsEnum.UPDATE_TYPE, result.data[0]);
   };
 
@@ -23,14 +23,14 @@ const TableDocumentTypePage: React.FC<TableRequestTypePageProps> = () => {
   useEffect(() => {
     console.log("recargar ...");
     if (!isFiltering) {
-      getRequestType(1, 10);
+      getDocumentType(1, 10);
       setFiltering(true);
     }
-  }, [isFiltering, getRequestType]);
+  }, [isFiltering, getDocumentType]);
 
   return (
     <TableView columns={columns} onPaginate={onPaginate} onFilter={onFilter} />
   );
 };
 
-export default TableRequestTypePage;
+export default TableDocumentTypePage;

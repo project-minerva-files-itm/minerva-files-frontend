@@ -7,30 +7,30 @@ import useTableColumns from "../../hooks/table_columns";
 import TableView from "../../components/table";
 import { ModalsEnum } from "../../../../enums/modals_enum";
 
-
-type TableCompanyPageProps = object
+type TableCompanyPageProps = object;
 
 const TableCompanyPage: React.FC<TableCompanyPageProps> = () => {
+  const [isFiltering, setFiltering] = useState(false);
+  const { openModal } = useModal();
+  const { getCompany, onPaginate, onFilter } = useService();
 
-    const [isFiltering, setFiltering] = useState(false);
-    const { openModal } = useModal();
-    const { getCompany, onPaginate, onFilter } = useService();
+  const getId = (result: TableSelectType<Company>) => {
+    openModal(ModalsEnum.UPDATE_COMPANY, result.data[0]);
+  };
 
-    const getId = (result: TableSelectType<Company>) => {
-        openModal(ModalsEnum.UPDATE_COMPANY, result.data[0]);
+  const columns = useTableColumns(getId);
+
+  useEffect(() => {
+    console.log("recargar ...");
+    if (!isFiltering) {
+      getCompany(1, 10);
+      setFiltering(true);
     }
+  }, [isFiltering, getCompany]);
 
-    const columns = useTableColumns(getId);
-
-    useEffect(() => {
-        console.log("recargar ...")
-        if (!isFiltering) {
-            getCompany(1, 10);
-            setFiltering(true);
-        }
-    }, [isFiltering, getCompany]);
-
-    return <TableView columns={columns} onPaginate={onPaginate} onFilter={onFilter} />
-}
+  return (
+    <TableView columns={columns} onPaginate={onPaginate} onFilter={onFilter} />
+  );
+};
 
 export default TableCompanyPage;
