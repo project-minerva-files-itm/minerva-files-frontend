@@ -20,5 +20,6 @@
     "description": "Description",
     "type": "Request type",
     "department": "Departments",
-    "location": "Location"
+    "location": "Location",
+    "typeDocuments": "Type of documents"
 }

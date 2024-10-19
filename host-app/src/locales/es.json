@@ -20,5 +20,6 @@
   "description": "Descripción",
   "type": "Tipo de solicitud",
   "department": "Departamentos",
-  "location": "ubicación"
+  "location": "ubicación",
+  "typeDocuments": "Tipo de documentos"
 }

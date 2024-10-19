@@ -1,10 +1,9 @@
 import TableRequestTypePage from "./pages/select";
 
-type RequestTypePageProps = unknown
+type RequestTypePageProps = unknown;
 
 const RequestTypePage: React.FC<RequestTypePageProps> = () => {
-
-    return <TableRequestTypePage></TableRequestTypePage>
-}
+  return <TableRequestTypePage></TableRequestTypePage>;
+};
 
 export default RequestTypePage;

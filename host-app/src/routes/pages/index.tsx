@@ -6,7 +6,6 @@ import userspapages from "../../app_user/routes";
 const pages: { [key: string]: Page } = {
     ...settingspapages,
     ...userspapages,
-
 };
 
 export default pages;
