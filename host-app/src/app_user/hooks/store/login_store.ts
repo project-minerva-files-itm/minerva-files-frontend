@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
 import { fetchSuccess } from "../../reducers/login_slice";
-import { Auth } from "../../models/auth";
+import { AuthType } from "../../models/auth";
 
 const useLoginStore = () => {
   const dispatch = useDispatch();
 
-  const setStore = (data: Auth) => {
+  const setStore = (data: AuthType) => {
     dispatch(fetchSuccess(data));
   };
 

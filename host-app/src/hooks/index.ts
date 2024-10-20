@@ -6,6 +6,7 @@ import useToastNotification from './utils/toast';
 import useValidation from './utils/validation';
 import { useModal } from './utils/modal';
 import { useAppDispatch, useAppSelector } from './store'
+import useJwtDecode from './utils/use_jwt';
 
 export {
     useEmpty,
@@ -15,5 +16,6 @@ export {
     useValidation,
     useModal,
     useAppDispatch,
-    useAppSelector
+    useAppSelector,
+    useJwtDecode
 };

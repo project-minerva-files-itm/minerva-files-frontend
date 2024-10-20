@@ -1,10 +1,10 @@
 import { AppBrand, AppNav, AppUl, AppNavLi, AppNavButton } from "bm-react-lib";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { SunIcon, MoonIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../../../hooks/utils/theme";
 import { useTranslation } from "react-i18next";
-import AuthRegisterModal from "../../../app_user"
+import { AuthRegisterModal, AuthSettingModal } from "../../../app_user"
 
 type ButtonProps = {
   isLogged: boolean
@@ -48,10 +48,10 @@ const Menu: React.FC<ButtonProps> = ({ isLogged }) => {
             </>
           }
           <li className="a option-setting">
-            {isLogged ? <AppNavButton className="switch-2">
-              <Cog6ToothIcon
-                style={{ width: 24, color: theme.isDark ? "white" : "black" }} />
-            </AppNavButton> : null}
+            {isLogged ?
+              <AuthSettingModal />
+              : null
+            }
             <AppNavButton className="switch-2">
               {theme.isDark ? (
                 <MoonIcon

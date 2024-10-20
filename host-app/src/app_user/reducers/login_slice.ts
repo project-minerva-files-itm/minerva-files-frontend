@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Auth } from "../models/auth";
+import { AuthType } from "../models/auth";
 
 
-const initialState: Auth = {
+const initialState: AuthType = {
   wasSuccess: true,
   message: "",
   token: "",
