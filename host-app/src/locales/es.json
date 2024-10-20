@@ -42,5 +42,8 @@
   "forwardEmail": "Si no ha recibido el mensaje, puede reenviar el correo de confirmación. También le recomendamos verificar la carpeta de spam, ya que es posible que el mensaje se encuentre allí.",
   "accountVerified": "Su cuenta ha sido verificada",
   "edit": "Editar",
-  "updated": "Actualizada"
+  "updated": "Actualizada",
+  "photo": "Foto",
+  "currentPassword":"Contraseña Actual",
+  "updatePassword": "Se ha actualizado su contraseña"
 }

@@ -31,10 +31,17 @@ const useApiLogin = () => {
     );
   };
 
-  const resetPassword = async (data: ResetPasswordType) => {
+  const resetPassword = async (data: ResetPasswordType, token: string) => {
     return await apiClient.post<AuthType>(
       `${apiLoginUrl}/${endpoint}/ResetPassword`,
-      data
+      data, token
+    );
+  };
+
+  const updatePassword = async (data: ResetPasswordType, token: string) => {
+    return await apiClient.post<AuthType>(
+      `${apiLoginUrl}/${endpoint}/changePassword`,
+      data, token
     );
   };
 
@@ -56,7 +63,7 @@ const useApiLogin = () => {
     );
   };
 
-  return { login, register, recover, resetPassword, resendConfirmationEmail, getUser, updated };
+  return { login, register, recover, resetPassword, resendConfirmationEmail, getUser, updated, updatePassword };
 
 }
 

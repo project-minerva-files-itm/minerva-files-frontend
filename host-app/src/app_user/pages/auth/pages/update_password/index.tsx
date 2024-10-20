@@ -1,18 +1,19 @@
 
-import RecoverPasswordView from "./view";
+
 import { ResetPasswordType } from "../../../../models/auth_reset_password";
 import useApiLogin from "../../../../hooks/services/api_login";
 import { useLoader, useToastNotification } from "@hooks/index";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
+import UpdatePasswordView from "./view";
 
 
-const ResetPasswordPage: React.FC = () => {
+const UpdatePasswordPage: React.FC = () => {
 
   const { t } = useTranslation();
   const showToast = useToastNotification();
   const loader = useLoader();
-  const { resetPassword } = useApiLogin();
+  const { updatePassword } = useApiLogin();
   const navigate = useNavigate();
 
   // Crear una instancia de URLSearchParams con la query string
@@ -26,33 +27,26 @@ const ResetPasswordPage: React.FC = () => {
 
     authUser.token = token;
     authUser.UserId = userId;
-    authUser.currentPassword = authUser.confirmPassword;
-    authUser.confirm = authUser.confirmPassword;
 
     console.log(authUser);
 
     loader.showLoader();
-    const response = await resetPassword(authUser, token);
+    const response = await updatePassword(authUser, token);
     loader.hideLoader();
 
-    if (!response.wasSuccess) {
-      response.message = response.message ?? "";
-    }
-
-    if (response.wasSuccess) {
-      response.message = t("sendRecoveryPassword");
-
+    if (response.succeeded) {
+      response.message = t("updatePassword");
     }
 
     showToast(response);
 
-    if (response.wasSuccess) {
-      navigate('/login');
+    if (response.succeeded) {
+      navigate('/home');
     }
 
   }
 
-  return <RecoverPasswordView name="login" handlerSave={handlerSave}></RecoverPasswordView>;
+  return <UpdatePasswordView name="login" handlerSave={handlerSave}></UpdatePasswordView>;
 }
 
-export default ResetPasswordPage;
+export default UpdatePasswordPage;

@@ -10,4 +10,5 @@ export interface FormType {
   password: string;
   passwordConfirm: string;
   language: string;
+  rol: number;
 }

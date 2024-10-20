@@ -15,11 +15,18 @@ const RegisterUserPage: React.FC = () => {
   const { closeModal } = useModal();
   const navigate = useNavigate();
 
-  const handlerSave = async (user: FormType) => {
+
+  const handlerSaveWithBase64 = async (user: FormType, base64: string) => {
 
     loader.showLoader();
     user.language = i18n.language;
     user.userName = user.email;
+    user.rol = 1;
+
+    const cleanBase64 = base64.replace(/^data:image\/[a-z]+;base64,/, '');
+
+    user.photo = cleanBase64;
+
     const response = await register(user);
     loader.hideLoader();
 
@@ -39,7 +46,13 @@ const RegisterUserPage: React.FC = () => {
 
   }
 
-  return <FormUserView name={ModalsEnum.CREATE_USER} handlerSave={handlerSave} title={t("createAccount")} isDeletable={false}></FormUserView>
+
+  const handlerSave = async (user: FormType) => {
+    console.log(user);
+  }
+
+
+  return <FormUserView name={ModalsEnum.CREATE_USER} handlerSaveWithBase64={handlerSaveWithBase64} handlerSave={handlerSave} title={t("createAccount")} isDeletable={false}></FormUserView>
 
 }
 

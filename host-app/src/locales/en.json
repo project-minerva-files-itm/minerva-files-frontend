@@ -42,5 +42,8 @@
     "forwardEmail": "If you have not received the message, you can resend the confirmation email. We also recommend checking your spam folder as the message may be located there.",
     "accountVerified": "Your account has been verified",
     "edit": "Edit",
-    "updated": "Updated"
+    "updated": "Updated",
+    "photo": "Photo",
+    "currentPassword": "Current Password",
+    "updatePassword": "Your password has been updated"
 }

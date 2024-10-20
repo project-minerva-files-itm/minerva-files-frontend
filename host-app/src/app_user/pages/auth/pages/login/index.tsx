@@ -29,6 +29,13 @@ const LoginPage: React.FC<PageProps> = () => {
       return;
     }
 
+    if (!response.token) {
+      response.message = t("loginError");
+      response.wasSuccess = false;
+      showToast(response);
+      return;
+    }
+
     setStore(response);
     navigate('/home')
 

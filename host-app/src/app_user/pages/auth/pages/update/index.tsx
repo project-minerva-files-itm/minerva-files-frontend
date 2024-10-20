@@ -24,6 +24,7 @@ const UpdateUserPage: React.FC = () => {
     user.language = i18n.language;
     user.userName = user.email;
     user.id = data["id"];
+    user.photo = "";
     const response = await updated(user, auth.token);
     loader.hideLoader();
 

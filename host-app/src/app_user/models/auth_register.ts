@@ -9,4 +9,5 @@ export interface AuthRegisterType {
   password: string;
   passwordConfirm: string;
   language: string;
+  rol: number;
 }
