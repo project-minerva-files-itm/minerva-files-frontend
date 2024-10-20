@@ -3,7 +3,7 @@ import { useLoader, useModal, useTheme } from "@hooks/index";
 import { AppButton } from "bm-react-lib";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { UserJwtPayload } from "../types/user_jwt_payload";
+import { UserJwtPayload } from "../../../../../../types/user_jwt_payload";
 import { AppModal } from "@components/index";
 import { ModalsEnum } from "../../../../../enums/modals_enum";
 import UpdateUserPage from "../../update";

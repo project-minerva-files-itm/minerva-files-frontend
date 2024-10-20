@@ -5,9 +5,9 @@ import AuthSetting from "./view";
 import { useNavigate } from "react-router";
 import useLoginStore from "../../../../hooks/store/login_store";
 import { useJwtDecode, useModal } from "@hooks/index";
-import { UserJwtPayload } from "./types/user_jwt_payload";
+import { UserJwtPayload } from "../../../../../types/user_jwt_payload";
 import { ModalsEnum } from "../../../../enums/modals_enum";
-import  useApiLogin  from "../../../../hooks/services/api_login";
+import useApiLogin from "../../../../hooks/services/api_login";
 
 type ButtonProps = unknown
 
