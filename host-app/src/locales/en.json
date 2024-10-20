@@ -22,5 +22,11 @@
     "department": "Departments",
     "location": "Location",
     "typeDocuments": "Type of documents",
-    "typeActivities": "Type of activities"
+    "typeActivities": "Type of activities",
+    "logIn": "Log in",
+    "user": "User",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "login": "Login",
+    "loginError": "Incorrect username or password"
 }

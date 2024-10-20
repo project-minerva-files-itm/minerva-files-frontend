@@ -22,5 +22,11 @@
   "department": "Departamentos",
   "location": "ubicación",
   "typeDocuments": "Tipo de documentos",
-  "typeActivities": "Tipo de actividades"
+  "typeActivities": "Tipo de actividades",
+  "logIn": "Inicia sesión",
+  "user": "Usuario",
+  "password": "Contraseña",
+  "forgotPassword": "¿Has olvidado tu contraseña?",
+  "login": "Iniciar sesion",
+  "loginError": "Usuario o contraseña incorrectos"
 }
