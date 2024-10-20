@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Field, Form } from "react-final-form";
 import { useModal, useValidation, useLoader } from "@hooks/index";
 import { AppButton, LayoutHeadModal, UILabel } from "bm-react-lib";
@@ -9,20 +9,31 @@ import {
 import { FormType } from "./types/type_form";
 import { FormProps } from "@apptypes/form_type";
 import { useTranslation } from "react-i18next";
+import FileUpload from "../file";
 
 const FormUserView: React.FC<FormProps<FormType>> = ({
   title,
   name,
   data,
   handlerSave,
+  handlerSaveWithBase64,
 }) => {
+
+  const [fileBase64, setFileBase64] = useState<string>('');
   const loader = useLoader();
   const { closeModal } = useModal();
   const { t } = useTranslation();
-  const onSubmit = (person: FormType) => handlerSave(person);
+  const onSubmit = (person: FormType) => {
+    handlerSave(person);
+    handlerSaveWithBase64!(person, fileBase64 ?? "");
+  }
 
   const { validate } = useValidation<FormType>();
   const requiredFields: (keyof FormType)[] = ["email", "phoneNumber", "firstName", "lastName", "password", "passwordConfirm"];
+
+  const handleFileUpload = (base64String: string) => {
+    setFileBase64(base64String);
+  };
 
   return (
     <>
@@ -175,6 +186,27 @@ const FormUserView: React.FC<FormProps<FormType>> = ({
                         )}
                       </Field>
                     </div>
+
+                    <div className="sm:col-span-2">
+                      <UILabel htmlFor="password" text={t("photo")} />
+                      <FileUpload onFileUpload={handleFileUpload}></FileUpload>
+                      <Field name="photo">
+                        {({ input, meta }) => (
+                          <input
+                            {...input}
+                            value={fileBase64}
+                            defaultValue={fileBase64}
+                            type="hidden"
+                            className={
+                              meta.error && meta.touched
+                                ? "app-field-fail"
+                                : "app-field"
+                            }
+                          />
+                        )}
+                      </Field>
+                    </div>
+
                   </div>
                 </div>
               </div>

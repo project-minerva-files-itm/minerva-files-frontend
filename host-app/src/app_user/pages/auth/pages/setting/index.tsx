@@ -16,7 +16,7 @@ const SettingAuthPage: React.FC<ButtonProps> = () => {
   const auth = useGetAuth();
   const navigate = useNavigate();
   const { setStore } = useLoginStore();
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
   const { getUser } = useApiLogin();
 
 
@@ -35,11 +35,17 @@ const SettingAuthPage: React.FC<ButtonProps> = () => {
 
   const edit = async () => {
     const response = await getUser(decodedToken?.Id ?? "");
-    console.log("HHHHHH", response)
     openModal(ModalsEnum.UPDATE_USER, response);
   }
 
-  return <AuthSetting logout={logout} user={decodedToken} edit={edit}></AuthSetting>
+  const onPassword = async () => {
+    closeModal(ModalsEnum.SETTING_USER);
+    navigate(`/update-account?userid=${decodedToken?.Id}&token=${auth.token}`);
+  }
+
+
+
+  return <AuthSetting logout={logout} user={decodedToken} edit={edit} onPassword={onPassword}></AuthSetting>
 };
 
 export default SettingAuthPage;
