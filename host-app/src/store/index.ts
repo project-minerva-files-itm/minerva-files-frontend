@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   RequestType: TypeSlice,
   DocumentType: DocumentTypeSlice,
   ActivityType: ActivityTypeSlice,
-  AuthSlice: AuthSlice,
+  Auth: AuthSlice,
 });
 
 export const store = configureStore({

@@ -7,7 +7,8 @@
   "of": "de",
   "page": "Página",
   "company": "Compañia",
-  "name": "Nombre",
+  "name": "Nombres",
+  "lastName": "Apellidos",
   "document": "Documento",
   "address": "Dirección",
   "phone": "Teléfono",
@@ -26,7 +27,10 @@
   "logIn": "Inicia sesión",
   "user": "Usuario",
   "password": "Contraseña",
+  "confirmPassword": "Confirmar contraseña",
   "forgotPassword": "¿Has olvidado tu contraseña?",
   "login": "Iniciar sesion",
-  "loginError": "Usuario o contraseña incorrectos"
+  "loginError": "Usuario o contraseña incorrectos",
+  "createAccount": "Crear una cuenta",
+  "registerUser": "Usuario creado con éxito. Por favor, confirme su cuenta. Hemos enviado un mensaje a su correo electrónico."
 }
