@@ -35,5 +35,6 @@
     "registerUser": "User created successfully. Please confirm your account. We have sent a message to your email",
     "send": "Send",
     "sendRecoveryPassword": "We have sent an email with instructions to recover your password.",
-    "resetPassword": "Reset password"
+    "resetPassword": "Reset password",
+    "logout": "Log out"
 }
