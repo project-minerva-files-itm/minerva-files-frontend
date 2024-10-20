@@ -8,6 +8,8 @@ import {
   ActivityTypeSlice,
 } from "../app_setting/reducers";
 
+import { AuthSlice } from "../app_user/reducers";
+
 const rootReducer = combineReducers({
   Company: CompanySlice,
   Department: DepartmentSlice,
@@ -15,6 +17,7 @@ const rootReducer = combineReducers({
   RequestType: TypeSlice,
   DocumentType: DocumentTypeSlice,
   ActivityType: ActivityTypeSlice,
+  AuthSlice: AuthSlice,
 });
 
 export const store = configureStore({
