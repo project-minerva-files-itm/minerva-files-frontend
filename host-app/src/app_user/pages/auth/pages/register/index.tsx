@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import FormUserView from "../../components/form";
 import { FormType } from "../../components/form/types/type_form";
 import { ModalsEnum } from "../../../../enums/modals_enum";
+import { useNavigate } from "react-router";
 
 const RegisterUserPage: React.FC = () => {
 
@@ -12,6 +13,7 @@ const RegisterUserPage: React.FC = () => {
   const loader = useLoader();
   const { register } = useApiLogin();
   const { closeModal } = useModal();
+  const navigate = useNavigate();
 
   const handlerSave = async (user: FormType) => {
 
@@ -30,6 +32,7 @@ const RegisterUserPage: React.FC = () => {
       response.message = t("registerUser");
       response.wasSuccess = true;
       closeModal(ModalsEnum.CREATE_USER);
+      navigate('/forward-email')
     }
 
     showToast(response);

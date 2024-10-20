@@ -3,6 +3,8 @@ import Login from '../pages/auth';
 import RegisterUser from '../pages/auth/pages/register';
 import RecoverPasswordPage from '../pages/auth/pages/recoverPassword';
 import ResetPasswordPage from '../pages/auth/pages/resetPassword';
+import ForwardEmailPage from '../pages/auth/pages/forward_email';
+import VerifiedAccountPage from '../pages/auth/pages/verified_account';
 
 const pages: { [key: string]: Page } = {
     Login: {
@@ -24,7 +26,18 @@ const pages: { [key: string]: Page } = {
         name: 'ResetPasswordPage',
         path: '/reset-password',
         element: <ResetPasswordPage />,
-    }
+    },
+    ForwardEmailPage: {
+        name: 'ForwardEmailPage',
+        path: '/forward-email',
+        element: <ForwardEmailPage />,
+    },
+    VerifiedAccountPage: {
+        name: 'VerifiedAccountPage',
+        path: '/verified-account',
+        element: <VerifiedAccountPage />,
+    },
+
 };
 
 export default pages;

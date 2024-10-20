@@ -10,8 +10,6 @@ const AuthRegisterModal: React.FC<ButtonProps> = () => {
   const { t } = useTranslation();
   const { modalState, openModal } = useModal();
 
-  console.log(name);
-
   return <>
     <a onClick={() => openModal(ModalsEnum.CREATE_USER)} className="a">
       {t("createAccount")}
@@ -22,17 +20,6 @@ const AuthRegisterModal: React.FC<ButtonProps> = () => {
           <RegisterUserPage />
         </AppModal>
       ) : null
-    }
-
-    {
-      /* modalState[ModalsEnum.UPDATE_COMPANY]?.isOpen ? (
-         <AppModal name={ModalsEnum.UPDATE_COMPANY}>
-           <UpdateCompanyPage
-             title={title}
-             name={ModalsEnum.UPDATE_COMPANY}
-           ></UpdateCompanyPage>
-         </AppModal>
-       ) : null*/
     }
   </>;
 }

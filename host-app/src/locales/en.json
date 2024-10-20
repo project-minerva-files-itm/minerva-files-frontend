@@ -36,5 +36,11 @@
     "send": "Send",
     "sendRecoveryPassword": "We have sent an email with instructions to recover your password.",
     "resetPassword": "Reset password",
-    "logout": "Log out"
+    "logout": "Log out",
+    "accountCreated": "Account created",
+    "forward": "Forward",
+    "forwardEmail": "If you have not received the message, you can resend the confirmation email. We also recommend checking your spam folder as the message may be located there.",
+    "accountVerified": "Your account has been verified",
+    "edit": "Edit",
+    "updated": "Updated"
 }
