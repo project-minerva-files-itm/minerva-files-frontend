@@ -6,7 +6,7 @@ interface RequestConfig {
     body?: string | FormData;
 }
 
-interface Parsers<T> {
+export interface Parsers<T> {
     [key: string]: (data: unknown) => T;
 }
 
@@ -26,9 +26,9 @@ export const useApiClient = (httpClient: HttpClient = fetch) => {
             method: string,
             route: string,
             body?: unknown,
+            hardToken: string = '',
             type: string = 'application/json',
             parsers: Parsers<T> = {},
-            hardToken: string = ''
         ): Promise<T> => {
             const requestConfig: RequestConfig = {
                 method,
@@ -47,6 +47,11 @@ export const useApiClient = (httpClient: HttpClient = fetch) => {
             } else if (body) {
                 requestConfig.body = body as string | FormData;
             }
+
+            console.log("XXXXXXXXXXXXXXXXXXXX")
+            console.log("hardToken ", hardToken)
+            console.log(requestConfig.headers['Authorization']);
+            console.log(requestConfig);
 
             try {
 
@@ -73,23 +78,23 @@ export const useApiClient = (httpClient: HttpClient = fetch) => {
     );
 
     const client = {
-        get: <T,>(route: string, type?: string, body?: unknown, parsers?: Parsers<T>) =>
-            req<T>('GET', route, body, type, parsers),
+        get: <T,>(route: string, type?: string, body?: unknown, hardToken?: string, parsers?: Parsers<T>) =>
+            req<T>('GET', route, body, hardToken, type, parsers),
 
-        getToken: <T,>(route: string, type?: string, body?: unknown, parsers?: Parsers<T>, hardToken?: string) =>
-            req<T>('GET', route, body, type, parsers, hardToken),
+        getToken: <T,>(route: string, type?: string, body?: unknown, hardToken?: string, parsers?: Parsers<T>) =>
+            req<T>('GET', route, body, hardToken, type, parsers),
 
-        post: <T,>(route: string, body?: unknown, type?: string, parsers?: Parsers<T>) =>
-            req<T>('POST', route, body, type, parsers),
+        post: <T,>(route: string, body?: unknown, hardToken?: string, type?: string, parsers?: Parsers<T>) =>
+            req<T>('POST', route, body, hardToken, type, parsers),
 
-        put: <T,>(route: string, body?: unknown, type?: string, parsers?: Parsers<T>) =>
-            req<T>('PUT', route, body, type, parsers),
+        put: <T,>(route: string, body?: unknown, hardToken?: string, type?: string, parsers?: Parsers<T>) =>
+            req<T>('PUT', route, body, hardToken, type, parsers,),
 
-        patch: <T,>(route: string, body?: unknown, type?: string, parsers?: Parsers<T>) =>
-            req<T>('PATCH', route, body, type, parsers),
+        patch: <T,>(route: string, body?: unknown, hardToken?: string, type?: string, parsers?: Parsers<T>) =>
+            req<T>('PATCH', route, body, hardToken, type, parsers),
 
-        delete: <T,>(route: string, body?: unknown, type?: string, parsers?: Parsers<T>) =>
-            req<T>('DELETE', route, body, type, parsers),
+        delete: <T,>(route: string, body?: unknown, hardToken?: string, type?: string, parsers?: Parsers<T>) =>
+            req<T>('DELETE', route, body, hardToken, type, parsers),
     };
 
     return client;

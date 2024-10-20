@@ -36,5 +36,11 @@
   "send": "Enviar",
   "sendRecoveryPassword": "Hemos enviado un correo con las instrucciones para recuperar su contraseña",
   "resetPassword": "Restablecer contraseña",
-  "logout":"Cerrar sesión"
+  "logout": "Cerrar sesión",
+  "accountCreated": "Cuenta creada",
+  "forward": "Reenviar",
+  "forwardEmail": "Si no ha recibido el mensaje, puede reenviar el correo de confirmación. También le recomendamos verificar la carpeta de spam, ya que es posible que el mensaje se encuentre allí.",
+  "accountVerified": "Su cuenta ha sido verificada",
+  "edit": "Editar",
+  "updated": "Actualizada"
 }

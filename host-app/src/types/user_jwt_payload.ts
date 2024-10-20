@@ -4,4 +4,5 @@ export interface UserJwtPayload extends JwtPayload {
   FirstName: string;
   LastName: string;
   Rol: string;
+  Id: string;
 }

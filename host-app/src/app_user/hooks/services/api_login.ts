@@ -38,7 +38,25 @@ const useApiLogin = () => {
     );
   };
 
-  return { login, register, recover, resetPassword };
+  const resendConfirmationEmail = async (data: AuthRecover) => {
+    return await apiClient.post<AuthType>(
+      `${apiLoginUrl}/${endpoint}/ResendConfirmationEmail`,
+      data
+    );
+  };
+
+  const getUser = async (id: string) => {
+    return await apiClient.get<AuthRegisterType>(
+      `${apiLoginUrl}/${endpoint}/User?id=${id}`);
+  };
+
+  const updated = async (data: AuthRegisterType, token: string) => {
+    return await apiClient.put<AuthType>(
+      `${apiLoginUrl}/${endpoint}`, data, token
+    );
+  };
+
+  return { login, register, recover, resetPassword, resendConfirmationEmail, getUser, updated };
 
 }
 
