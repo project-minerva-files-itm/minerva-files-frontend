@@ -1,4 +1,4 @@
-export interface Auth {
+export interface AuthType {
   wasSuccess?: boolean;
   status?: number;
   message?: string;

@@ -32,5 +32,8 @@
   "login": "Iniciar sesion",
   "loginError": "Usuario o contraseña incorrectos",
   "createAccount": "Crear una cuenta",
-  "registerUser": "Usuario creado con éxito. Por favor, confirme su cuenta. Hemos enviado un mensaje a su correo electrónico."
+  "registerUser": "Usuario creado con éxito. Por favor, confirme su cuenta. Hemos enviado un mensaje a su correo electrónico.",
+  "send": "Enviar",
+  "sendRecoveryPassword": "Hemos enviado un correo con las instrucciones para recuperar su contraseña",
+  "resetPassword": "Restablecer contraseña"
 }
