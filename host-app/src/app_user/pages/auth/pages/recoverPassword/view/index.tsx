@@ -1,29 +1,27 @@
 
 import { Field, Form } from "react-final-form";
-import { AuthUser } from "../../../../../models/auth_user";
+import { AuthRecover } from "../../../../../models/auth_recover";
 import { useLoader, useValidation } from "@hooks/index";
 import { useTranslation } from "react-i18next";
 import { AppButton } from "bm-react-lib";
-import { useNavigate } from "react-router";
 
-interface LoginViewProps {
+interface RecoverPasswordViewProps {
   name: string,
-  data?: AuthUser,
-  handlerSave: (authUser: AuthUser) => void
+  data?: AuthRecover,
+  handlerSave: (authUser: AuthRecover) => void
 }
 
-const LoginView: React.FC<LoginViewProps> = ({ data, handlerSave }) => {
+const RecoverPasswordView: React.FC<RecoverPasswordViewProps> = ({ data, handlerSave }) => {
 
   const loader = useLoader();
-  const history = useNavigate();
 
-  const onSubmit = (authUser: AuthUser) => {
+  const onSubmit = (authUser: AuthRecover) => {
     handlerSave(authUser);
   }
 
   const { t } = useTranslation();
-  const { validate } = useValidation<AuthUser>();
-  const requiredFields: (keyof AuthUser)[] = ['password', 'email'];
+  const { validate } = useValidation<AuthRecover>();
+  const requiredFields: (keyof AuthRecover)[] = ['email'];
 
   return (
     <Form
@@ -41,7 +39,7 @@ const LoginView: React.FC<LoginViewProps> = ({ data, handlerSave }) => {
                 className="mx-auto h-20 w-auto"
               />*/}
               <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                {t("logIn")}
+                {t("forgotPassword")}
               </h2>
             </div>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -65,39 +63,11 @@ const LoginView: React.FC<LoginViewProps> = ({ data, handlerSave }) => {
                     </Field>
                   </div>
                 </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                      {t("password")}
-                    </label>
-                    <div className="text-sm">
-                      <a onClick={() => history("/recover-password")} className="font-semibold text-indigo-600 hover:text-indigo-500">
-                        {t("forgotPassword")}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="mt-2">
-                    <Field name='password'>
-                      {({ input, meta }) => (
-                        <input
-                          {...input}
-                          id="password"
-                          name="password"
-                          type="password"
-                          className={meta.error && meta.touched ? "app-field-fail" : "app-field"}
-                        />
-                      )}
-                    </Field>
-
-                  </div>
-                </div>
-
                 <div>
 
                   <AppButton
                     context={loader}
-                    text={t("login")}
+                    text={t("send")}
                     className='flex w-full justify-center rounded-md app-bg-blue px-3 py-1.5  font-semibold leading-6 text-white shadow-sm hover:app-bg-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:app-bg-blue'
                     child={""}>
                   </AppButton>
@@ -113,4 +83,4 @@ const LoginView: React.FC<LoginViewProps> = ({ data, handlerSave }) => {
 }
 
 
-export default LoginView;
+export default RecoverPasswordView;
