@@ -7,7 +7,6 @@ import ForwardEmailPage from '../pages/auth/pages/forward_email';
 import VerifiedAccountPage from '../pages/auth/pages/verified_account';
 import UpdatePasswordPage from '../pages/auth/pages/update_password';
 
-
 const pages: { [key: string]: Page } = {
     Login: {
         name: 'Login',
@@ -43,8 +42,7 @@ const pages: { [key: string]: Page } = {
         name: 'UpdatePasswordPage',
         path: '/update-account',
         element: <UpdatePasswordPage />,
-    },
-
+    }
 };
 
 export default pages;
