@@ -3,5 +3,7 @@ export interface ResetPasswordType {
   email: string,
   newPassword: string,
   confirmPassword: string,
+  currentPassword: string,
+  confirm: string,
   token: string
 };

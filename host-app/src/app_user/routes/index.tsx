@@ -5,6 +5,7 @@ import RecoverPasswordPage from '../pages/auth/pages/recoverPassword';
 import ResetPasswordPage from '../pages/auth/pages/resetPassword';
 import ForwardEmailPage from '../pages/auth/pages/forward_email';
 import VerifiedAccountPage from '../pages/auth/pages/verified_account';
+import UpdatePasswordPage from '../pages/auth/pages/update_password';
 
 const pages: { [key: string]: Page } = {
     Login: {
@@ -37,7 +38,11 @@ const pages: { [key: string]: Page } = {
         path: '/verified-account',
         element: <VerifiedAccountPage />,
     },
-
+    UpdatePasswordPage: {
+        name: 'UpdatePasswordPage',
+        path: '/update-account',
+        element: <UpdatePasswordPage />,
+    }
 };
 
 export default pages;

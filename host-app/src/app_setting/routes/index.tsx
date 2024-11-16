@@ -6,6 +6,8 @@ import ActivityStatePage from "../pages/activity_state";
 import RequestTypePage from "../pages/request_type";
 import DocumentTypePage from "../pages/document_type";
 import ActivityTypePage from "../pages/activity_type";
+import EmployeView from "../pages/person/form";
+import PersonDepartament from "../pages/person_department/form";
 
 const pages: { [key: string]: Page } = {
   App: {
@@ -43,6 +45,17 @@ const pages: { [key: string]: Page } = {
     path: "/activityType",
     element: <ActivityTypePage />,
   },
+  EmployeView: {
+    name: "EmployeView",
+    path: "/employe",
+    element: <EmployeView />,
+  },
+  PersonDepartament: {
+    name: 'PersonDepartament',
+    path: '/person-departament',
+    element: <PersonDepartament />,
+  }
+
 };
 
 export default pages;
