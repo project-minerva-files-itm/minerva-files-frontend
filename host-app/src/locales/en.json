@@ -19,10 +19,13 @@
     "settings": "Settings",
     "activity_state": "Activity State",
     "description": "Description",
+    "types": "Types",
     "type": "Request type",
+    "typesCorrespondence": "Tipo de correspondencia",
     "department": "Departments",
     "location": "Location",
     "typeDocuments": "Type of documents",
+    "typeDocument": "Type of document",
     "typeActivities": "Type of activities",
     "logIn": "Log in",
     "user": "User",
@@ -45,5 +48,10 @@
     "updated": "Updated",
     "photo": "Photo",
     "currentPassword": "Current Password",
-    "updatePassword": "Your password has been updated"
+    "updatePassword": "Your password has been updated",
+    "commonUse": "Common use",
+    "startDate":"Start Date",
+    "endDate": "End Date",
+    "sizeMax":"Max Size",
+    "see":"See"
 }

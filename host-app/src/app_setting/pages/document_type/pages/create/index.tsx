@@ -10,8 +10,10 @@ const CreateDocumentTypePage: React.FC<PageProps> = (props) => {
   const { saveDocumentType } = useService();
   const { closeModal } = useModal();
 
+
   const handlerSave = async (form: FormType) => {
     loader.showLoader();
+    form.RequestTypesId = props.id ?? 0;
     const result = await saveDocumentType(form);
     showToast(result);
     loader.hideLoader();

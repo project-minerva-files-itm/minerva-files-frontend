@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
 import { useModal, useValidation, useLoader } from "@hooks/index";
-import { AppButton, LayoutHeadModal, UILabel } from "bm-react-lib";
+import { AppButton, LayoutForm, LayoutHeadModal, SelectDto, UILabel } from "bm-react-lib";
 import {
   CheckCircleIcon,
   TrashIcon,
@@ -9,6 +9,12 @@ import {
 } from "@heroicons/react/16/solid";
 import { FormType } from "./types/type_form";
 import { FormProps } from "@apptypes/form_type";
+
+import useGetTypeDocumentsState from "../../../../hooks/data/get_type_documents";
+import Select, { SingleValue } from "react-select";
+import { FormApi } from "final-form";
+import { t } from "i18next";
+
 
 const FormDocumentTypeView: React.FC<FormProps<FormType>> = ({
   title,
@@ -18,19 +24,26 @@ const FormDocumentTypeView: React.FC<FormProps<FormType>> = ({
   isDeletable,
   handlerDelete,
 }) => {
+
+  const { documentData } = useGetTypeDocumentsState();
+
   const loader = useLoader();
   const { closeModal } = useModal();
 
   const onSubmit = (person: FormType) => handlerSave(person);
 
   const { validate } = useValidation<FormType>();
-  const requiredFields: (keyof FormType)[] = ["name", "description"];
+  const requiredFields: (keyof FormType)[] = ["Name", 'TypeDocument', 'Size', 'StartDate'];
 
   const handleDelete = () => {
     if (isDeletable && handlerDelete) {
       handlerDelete(data!);
     }
   };
+
+  const onChangeTypeDocument = (option: SingleValue<SelectDto>, form: FormApi<FormType, Partial<FormType>>) => {
+    form.change('TypeDocument', option?.value.toString());
+  }
 
   return (
     <>
@@ -39,7 +52,7 @@ const FormDocumentTypeView: React.FC<FormProps<FormType>> = ({
         onSubmit={onSubmit}
         validate={(values) => validate(values, requiredFields)}
       >
-        {({ handleSubmit }) => {
+        {({ handleSubmit, form }) => {
           return (
             <form onSubmit={handleSubmit}>
               <LayoutHeadModal title={title}>
@@ -90,49 +103,120 @@ const FormDocumentTypeView: React.FC<FormProps<FormType>> = ({
                 ) : null}
               </LayoutHeadModal>
 
-              <div className="space-y-12 ">
-                <div className="border-b border-gray-900/10 pb-12">
-                  <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-6">
-                    <div className="sm:col-span-2">
-                      <UILabel htmlFor="name" text="Name" />
-                      <Field name="name">
-                        {({ input, meta }) => (
-                          <input
-                            {...input}
-                            type="text"
-                            className={
-                              meta.error && meta.touched
-                                ? "app-field-fail"
-                                : "app-field"
-                            }
-                          />
-                        )}
-                      </Field>
-                    </div>
-
-                    <div className="sm:col-span-2">
-                      <UILabel htmlFor="description" text="Description" />
-                      <Field name="description">
-                        {({ input, meta }) => (
-                          <input
-                            {...input}
-                            type="text"
-                            className={
-                              meta.error && meta.touched
-                                ? "app-field-fail"
-                                : "app-field"
-                            }
-                          />
-                        )}
-                      </Field>
-                    </div>
+              <LayoutForm className="">
+                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+                    <UILabel htmlFor="Name" text={t("name")} />
+                    <Field name="Name">
+                      {({ input, meta }) => (
+                        <input
+                          {...input}
+                          type="text"
+                          className={
+                            meta.error && meta.touched
+                              ? "app-field-fail"
+                              : "app-field"
+                          }
+                        />
+                      )}
+                    </Field>
                   </div>
+
+                  <div className="sm:col-span-1">
+                    <UILabel htmlFor="TypeDocument" text={t("typeDocument")} />
+                    <Field name="TypeDocument">
+                      {({ input, meta }) => (
+                        <>
+                          <Select
+                            options={documentData}
+                            className={meta.error && meta.touched ? 'app-select-error' : 'app-select'}
+                            onChange={(option) => onChangeTypeDocument(option, form)}
+                          />
+                          <input {...input} type="hidden" />
+                        </>
+                      )}
+                    </Field>
+                  </div>
+
+                  <div className="sm:col-span-1">
+                    <UILabel htmlFor="Size" text="Tamaño máximo del documento (kB)" />
+                    <Field name="Size">
+                      {({ input, meta }) => (
+                        <input
+                          {...input}
+                          type="number"
+                          className={
+                            meta.error && meta.touched ? "app-field-fail" : "app-field"
+                          }
+                        />
+                      )}
+                    </Field>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <UILabel htmlFor="Link" text="Link" />
+                    <Field name="Link">
+                      {({ input, meta }) => (
+                        <input
+                          {...input}
+                          type="text"
+                          className={
+                            meta.error && meta.touched ? "app-field-fail" : "app-field"
+                          }
+                        />
+                      )}
+                    </Field>
+                  </div>
+
+                  <div>
+                    <UILabel htmlFor="StartDate" text="Activar a partir de" />
+                    <Field name="StartDate">
+                      {({ input, meta }) => (
+                        <input
+                          {...input}
+                          type="date"
+                          className={
+                            meta.error && meta.touched ? "app-field-fail" : "app-field"
+                          }
+                        />
+                      )}
+                    </Field>
+                  </div>
+                  <div>
+                    <UILabel htmlFor="EndDate" text="Desactivar a partir de" />
+                    <Field name="EndDate">
+                      {({ input, meta }) => (
+                        <input
+                          {...input}
+                          type="date"
+                          className={
+                            meta.error && meta.touched ? "app-field-fail" : "app-field"
+                          }
+                        />
+                      )}
+                    </Field>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <UILabel htmlFor="Description" text="Description" />
+                    <Field name="Description">
+                      {({ input, meta }) => (
+                        <textarea
+                          {...input}
+                          className={meta.error && meta.touched ? "app-field-fail" : "app-field"
+                          }
+                        />
+                      )}
+                    </Field>
+                  </div>
+
                 </div>
-              </div>
+              </LayoutForm>
             </form>
           );
         }}
       </Form>
+
     </>
   );
 };

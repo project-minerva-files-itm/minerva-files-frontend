@@ -7,4 +7,6 @@ export enum ModalsEnum {
   UPDATE_ACTIVITY = 'update_activity',
   CREATE_TYPE = 'create_type',
   UPDATE_TYPE = 'update_type',
+  DOCUMENT_TYPE = 'DocumentTypes',
+  CREATE_DOCUMENT_TYPE = 'CreateDocumentTypes',
 }

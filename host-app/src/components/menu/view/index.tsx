@@ -54,12 +54,12 @@ const Menu: React.FC<ButtonProps> = ({ isLogged, data }) => {
                 <a onClick={() => history("/requestType")} className="a">
                   {t("typeRequests")}
                 </a>
-                <a onClick={() => history("/documentType")} className="a">
+                {/*<a onClick={() => history("/documentType")} className="a">
                   {t("typeDocuments")}
                 </a>
                 <a onClick={() => history("/activityType")} className="a">
                   {t("typeActivities")}
-                </a>
+                </a>*/}
               </AppNavLi>
             </> :
             <>

@@ -1,4 +1,5 @@
 export interface PageProps {
-    name: string
+    id?: number,
+    name: string,
     title: string
 }

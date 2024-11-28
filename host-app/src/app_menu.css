@@ -238,7 +238,7 @@ video {
 .header {
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 40;
     width: 100%;
     height: auto;
     margin: 0 auto;

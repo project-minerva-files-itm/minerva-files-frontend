@@ -1,0 +1,67 @@
+[
+  {
+    "label": "Plantilla HTML WYSIWYG",
+    "value": "WYSIWYG",
+    "extensions": "WYSIWYG"
+  },
+  {
+    "label": "Archivos Word",
+    "value": "Word",
+    "extensions": ".docx, .doc"
+  },
+  {
+    "label": "Archivos PDF",
+    "value": "PDF",
+    "extensions": ".pdf"
+  },
+  {
+    "label": "Archivos PowerPoint",
+    "value": "PowerPoint",
+    "extensions": ".pptx, .ppt"
+  },
+  {
+    "label": "Archivos Excel",
+    "value": "Excel",
+    "extensions": ".xlsx, .xls"
+  },
+  {
+    "label": "Archivos CSV",
+    "value": "CSV",
+    "extensions": ".CSV"
+  },
+  {
+    "label": "Imágenes",
+    "value": "Img",
+    "extensions": ".jpg, .png"
+  },
+  {
+    "label": "Multimedia Audio",
+    "value": "Audio",
+    "extensions": ".mp3"
+  },
+  {
+    "label": "Multimedia Video",
+    "value": "Video",
+    "extensions": ".mp4"
+  },
+  {
+    "label": "Formularios",
+    "value": "Formulario",
+    "extensions": "Link"
+  },
+  {
+    "label": "Archivos XML",
+    "value": "XML",
+    "extensions": ".xml"
+  },
+  {
+    "label": "Archivos JSON",
+    "value": "JSON",
+    "extensions": ".json"
+  },
+  {
+    "label": "Enlaces a Documentos en la Nube",
+    "value": "Nube",
+    "extensions": "Link"
+  }
+]
