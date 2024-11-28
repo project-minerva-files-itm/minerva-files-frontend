@@ -7,6 +7,7 @@ import useTableColumns from "../../hooks/table_columns";
 import TableView from "../../components/table";
 import { ModalsEnum } from "../../../../enums/modals_enum";
 
+
 type TableDocumentTypePageProps = object;
 
 const TableDocumentTypePage: React.FC<TableDocumentTypePageProps> = () => {
@@ -29,7 +30,10 @@ const TableDocumentTypePage: React.FC<TableDocumentTypePageProps> = () => {
   }, [isFiltering, getDocumentType]);
 
   return (
-    <TableView columns={columns} onPaginate={onPaginate} onFilter={onFilter} />
+    <>
+      <TableView columns={columns} onPaginate={onPaginate} onFilter={onFilter} />
+    </>
+
   );
 };
 

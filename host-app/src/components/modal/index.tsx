@@ -3,8 +3,6 @@ import React from 'react';
 import { useModal } from '@hooks/index';
 
 
-
-
 export interface ModalProps {
     name: string,
     title?: string | '',
@@ -14,6 +12,8 @@ export interface ModalProps {
 const AppModal: React.FC<ModalProps> = (props) => {
 
     const { modalState, closeModal } = useModal();
+
+    if (!modalState[props.name]?.isOpen) return null;
 
     return (
         <Dialog open={modalState[props.name]?.isOpen ?? false} onClose={() => closeModal(props.name)} className="relative z-10">

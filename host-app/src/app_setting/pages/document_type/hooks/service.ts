@@ -26,7 +26,7 @@ export const useService = () => {
   };
 
   const deleteDocumentType = async (data: DocumentType) => {
-    const response = await deleted(data.id);
+    const response = await deleted(data.Id);
     console.log(response);
     return response;
   };

@@ -16,31 +16,53 @@ const useTableColumns = (
           <input
             type="radio"
             onChange={() =>
-              onIconClick({ select: row.getValue("id"), data: [row.original] })
+              onIconClick({ select: row.original.id, data: [row.original] })
             }
-            value={row.getValue("id")}
+            value={row.original.id}
             name="table"
           />
         ),
       },
       {
-        accessorFn: (row) => row.id,
-        id: "id",
-        cell: (info) => info.getValue(),
-        header: () => <span>ID</span>,
-        size: 30,
+        id: "link",
+        cell: ({ row }) =>
+          (row.original.link ? <a title={t("see")} href={row.original.link} target="_blank">Doc</a> : null)
       },
       {
         accessorFn: (row) => row.name,
-        id: "name",
+        id: "Name",
         cell: (info) => info.getValue(),
         header: () => <span>{t("name")}</span>,
       },
       {
         accessorFn: (row) => row.description,
-        id: "description",
+        id: "Description",
         cell: (info) => info.getValue(),
         header: () => <span>{t("description")}</span>,
+      },
+      {
+        accessorFn: (row) => row.startDate,
+        id: "StartDate",
+        cell: (info) => info.getValue(),
+        header: () => <span>{t("startDate")}</span>,
+      },
+      {
+        accessorFn: (row) => row.endDate,
+        id: "EndDate",
+        cell: (info) => info.getValue(),
+        header: () => <span>{t("endDate")}</span>,
+      },
+      {
+        accessorFn: (row) => row.size,
+        id: "Size",
+        cell: (info) => info.getValue(),
+        header: () => <span>{t("sizeMax")}</span>,
+      },
+      {
+        accessorFn: (row) => row.typeDocument,
+        id: "typeDocument",
+        cell: (info) => info.getValue(),
+        header: () => <span>{t("types")}</span>,
       },
     ],
     [onIconClick]
