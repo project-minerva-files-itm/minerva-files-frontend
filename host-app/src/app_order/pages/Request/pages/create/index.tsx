@@ -33,12 +33,11 @@ const RegisterRequestPage: React.FC<PageProps> = (props) => {
       response.wasSuccess = false;
     }
 
-    if (response.wasSuccess) {
-      response.message = t("requestRegister");
-      response.wasSuccess = true;
-      closeModal(ModalsEnum.CREATE_REQUEST);
-      navigate('/request_success')
-    }
+    response.message = t("requestRegister");
+    response.wasSuccess = true;
+    closeModal(ModalsEnum.CREATE_REQUEST);
+    navigate('/request_success')
+
 
     showToast(response);
 
