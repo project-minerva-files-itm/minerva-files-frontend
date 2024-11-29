@@ -17,18 +17,15 @@ const RegisterRequestPage: React.FC<PageProps> = (props) => {
   const navigate = useNavigate();
 
 
-  const handlerSaveWithBase64 = async (user: FormRequest, base64: string) => {
+  const handlerSaveWithBase64 = async (request: FormRequest, base64: string) => {
 
     loader.showLoader();
-    //user.language = i18n.language;
-    //user.userName = user.email;
-    //user.rol = 1;
-
+    request.language = i18n.language;
     const cleanBase64 = base64.replace(/^data:image\/[a-z]+;base64,/, '');
 
-    user.photo = cleanBase64;
+    request.attachment = cleanBase64;
 
-    const response = await save(user);
+    const response = await save(request);
     loader.hideLoader();
 
     if (response.status === 400) {
@@ -48,8 +45,8 @@ const RegisterRequestPage: React.FC<PageProps> = (props) => {
   }
 
 
-  const handlerSave = async (user: FormRequest) => {
-    console.log(user);
+  const handlerSave = async (request: FormRequest) => {
+    console.log(request);
   }
 
 

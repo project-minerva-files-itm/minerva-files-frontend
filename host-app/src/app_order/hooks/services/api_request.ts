@@ -15,9 +15,12 @@ const useApiRequest = () => {
   };
 
   const save = async (data: Request) => {
+    const { language, ...dataWithoutLanguage } = data; // Extraer 'language' y dejar el resto de propiedades
+    const lang = language || "es"; // Valor predeterminado en caso de que 'language' no exista
+
     return await apiClient.post<ApiResponse<Request>>(
-      `${apiUrlorder}/${endpoint}`,
-      data
+      `${apiUrlorder}/${endpoint}/full?language=${lang}`,
+      dataWithoutLanguage // Enviar el nuevo objeto sin 'language'
     );
   };
 

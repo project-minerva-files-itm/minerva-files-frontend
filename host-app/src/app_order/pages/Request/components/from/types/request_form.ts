@@ -7,4 +7,6 @@ export interface FormRequest {
   subject: string;
   description: string;
   requestTypeId: number;
+  attachment: string,
+  language: string;
 }

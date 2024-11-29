@@ -27,6 +27,22 @@ const FormRequestView: React.FC<FormProps<FormRequest>> = ({
     handlerSaveWithBase64!(person, fileBase64 ?? "");
   }
 
+  // Opciones para el campo "Tipo de solicitud"
+  const requestTypeOptions = [
+    { label: "Actas", value: "1" },
+    { label: "Boletines Internos", value: "2" },
+    { label: "Cartas Internas", value: "3" },
+    { label: "Certificados", value: "4" },
+    { label: "Comunicados de Prensa", value: "5" },
+    { label: "Contratos", value: "6" },
+    { label: "Facturas", value: "7" },
+    { label: "Informes", value: "8" },
+    { label: "Invitaciones", value: "9" },
+    { label: "Memorandos", value: "10" },
+    { label: "Solicitudes Internas", value: "11" },
+    { label: "Órdenes de Compra", value: "12" },
+  ];
+
   const { validate } = useValidation<FormRequest>();
   const requiredFields: (keyof FormRequest)[] = ["email", "phoneNumber", "firstName", "lastName", "subject", "description", "requestTypeId"];
 
@@ -134,12 +150,20 @@ const FormRequestView: React.FC<FormProps<FormRequest>> = ({
                 </label>
                 <Field name="requestTypeId">
                   {({ input, meta }) => (
-                    <input
+                    <select
                       {...input}
-                      type="text"
                       className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 ${meta.error && meta.touched ? "border-red-500" : ""
                         }`}
-                    />
+                    >
+                      <option value="" disabled>
+                        Selecciona un tipo de solicitud
+                      </option>
+                      {requestTypeOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
                   )}
                 </Field>
               </div>

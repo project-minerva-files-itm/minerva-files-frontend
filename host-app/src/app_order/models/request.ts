@@ -1,12 +1,12 @@
 export interface Request {
   id: number;
-  userName: string;
-  email: string;
   firstName: string;
   lastName: string;
+  email: string;
   phoneNumber: string;
-  requestType: number;
   subject: string;
   description: string;
+  requestTypeId: number;
   attachment: string;
+  language: string;
 }
