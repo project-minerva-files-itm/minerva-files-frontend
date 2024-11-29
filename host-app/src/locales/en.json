@@ -50,8 +50,10 @@
     "currentPassword": "Current Password",
     "updatePassword": "Your password has been updated",
     "commonUse": "Common use",
-    "startDate":"Start Date",
+    "startDate": "Start Date",
     "endDate": "End Date",
-    "sizeMax":"Max Size",
-    "see":"See"
+    "sizeMax": "Max Size",
+    "see": "See",
+    "requestRegister": "Request created successfully! Please confirm your account. We have sent a message to your email with the details of your request.",
+    "requestError": "An error occurred while processing your request. Please try again later or contact our support if the problem persists."
 }

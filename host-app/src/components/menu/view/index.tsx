@@ -23,13 +23,21 @@ const Menu: React.FC<ButtonProps> = ({ isLogged, data }) => {
         <AppUl>
           {
             data == null ?
-              <a onClick={() => history("/")} className="a">
+              <a onClick={() => history("/request")} className="a">
                 Radicación de Correspondencia
               </a>
               : null
           }
           {isLogged ?
             <>
+
+              {
+                data?.Rol == "Admin" ? <AppNavLi label={t("Solicitudes")}>
+                  <a onClick={() => history("/request_list")} className="a">
+                    listado solicitudes
+                  </a>
+                </AppNavLi> : null
+              }
               {
                 data?.Rol == "Admin" ? <AppNavLi label={t("Libro de direcciones")}>
                   <a onClick={() => history("/activities")} className="a">

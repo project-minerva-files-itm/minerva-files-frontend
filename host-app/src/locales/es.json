@@ -54,5 +54,7 @@
   "startDate": "Fecha Inicio",
   "endDate": "Fecha Finalización",
   "sizeMax": "Tamaño Máximo",
-  "see": "Ver"
+  "see": "Ver",
+  "requestRegister": "¡Solicitud creada con éxito! Por favor, confirme su cuenta. Hemos enviado un mensaje a su correo electrónico con los detalles de su solicitud.",
+  "requestError": "Ha ocurrido un error al procesar su solicitud. Por favor, inténtelo de nuevo más tarde o contacte con nuestro soporte técnico si el problema persiste."
 }
